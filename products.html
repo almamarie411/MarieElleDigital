@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Products | Marie Elle Digital</title>
+    <style>
+        /* Base Styles (Matching index.html) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a1a; background-color: #fdfcfb; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .brand-logo span { color: #b08d57; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
+
+        /* Products Header */
+        .shop-header {
+            text-align: center;
+            padding: 60px 8% 40px;
+            background-color: #fff;
+        }
+        .shop-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .filter-nav {
+            display: flex; justify-content: center; gap: 15px; margin-top: 20px;
+        }
+        .filter-btn {
+            background: none; border: 1px solid #ddd; padding: 8px 20px;
+            border-radius: 20px; cursor: pointer; font-size: 13px; transition: 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active { background: #b08d57; color: white; border-color: #b08d57; }
+
+        /* Product Grid */
+        .shop-container { padding: 40px 8%; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: white; border-radius: 8px; overflow: hidden;
+            position: relative; transition: 0.3s; border: 1px solid #eee;
+        }
+        .sale-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: #e63946; color: white; padding: 4px 12px;
+            font-size: 11px; font-weight: bold; border-radius: 3px; z-index: 2;
+        }
+        .product-img {
+            width: 100%; height: 280px; object-fit: cover;
+            transition: 0.5s;
+        }
+        .product-card:hover .product-img { transform: scale(1.05); }
+        .product-info { padding: 20px; text-align: left; }
+        .product-cat { font-size: 10px; text-transform: uppercase; color: #b08d57; letter-spacing: 1px; }
+        .product-info h3 { font-size: 16px; margin: 8px 0; }
+        .price-container { display: flex; gap: 10px; align-items: center; }
+        .current-price { font-weight: bold; font-size: 18px; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 14px; }
+
+        /* Footer */
+        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand-logo"><a href="index.html" style="text-decoration:none; color:inherit;">MARIE ELLE <span>DIGITAL</span></a></div>
+        <ul>
+            <li><a href="products.html">SHOP</a></li>
+            <li><a href="#">COURSES</a></li>
+            <li><a href="#">FREEBIES</a></li>
+            <li><a href="#">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <div class="shop-header">
+        <h1>All Products</h1>
+        <div class="filter-nav">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Templates</button>
+            <button class="filter-btn">Courses</button>
+            <button class="filter-btn">Bundles</button>
+        </div>
+    </div>
+
+    <section class="shop-container">
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="sale-badge">SALE</span>
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=500" class="product-img">
+                <div class="product-info">
+                    <span class="product-cat">Templates</span>
+                    <h3>Airbnb Welcome Book Template</h3>
+                    <div class="price-container">
+                        <span class="current-price">$9.00</span>
+                        <span class="old-price">$25.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="sale-badge">BEST SELLER</span>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500" class="product-img">
+                <div class="product-info">
+                    <span class="product-cat">Bundles</span>
+                    <h3>The Digital Marketing Kit (PLR)</h3>
+                    <div class="price-container">
+                        <span class="current-price">$67.00</span>
+                        <span class="old-price">$320.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="sale-badge">SALE</span>
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500" class="product-img">
+                <div class="product-info">
+                    <span class="product-cat">Social Media</span>
+                    <h3>Neutral Instagram Carousel Pack</h3>
+                    <div class="price-container">
+                        <span class="current-price">$27.00</span>
+                        <span class="old-price">$125.00</span>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
