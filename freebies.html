@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freebies | Marie Elle Digital</title>
     <style>
-        /* Global Reset & Typography */
+        /* Global Reset */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; }
 
@@ -26,8 +26,8 @@
         .nav-links a { text-decoration: none; color: #333; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
         .nav-links a:hover { color: #888; }
 
-        /* Hero Section - Split Layout */
-        .hero-section { padding: 100px 5%; background-color: #fff; }
+        /* Hero Section - Encouraging Copy */
+        .hero-section { padding: 80px 5%; background-color: #fff; }
         .hero-container {
             display: flex;
             align-items: center;
@@ -39,12 +39,12 @@
         .hero-image { flex: 1; }
         .hero-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .hero-content { flex: 1; max-width: 500px; }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 20px; color: #1a1a1a; line-height: 1.1; }
-        .hero-content p { font-size: 1.1rem; margin-bottom: 30px; color: #555; }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 15px; color: #1a1a1a; line-height: 1.1; }
+        .hero-content p { font-size: 1.15rem; margin-bottom: 25px; color: #555; }
 
-        /* Form Styling */
-        .hero-form { display: flex; flex-direction: column; gap: 15px; }
-        .hero-form input { padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+        /* Signup Form */
+        .hero-form { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .hero-form input { padding: 16px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; width: 100%; }
         .hero-form button {
             padding: 18px;
             background-color: #000;
@@ -52,38 +52,44 @@
             border: none;
             border-radius: 5px;
             font-weight: 600;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.2s, background 0.3s;
         }
-        .hero-form button:hover { background-color: #333; }
+        .hero-form button:hover { background-color: #333; transform: scale(1.02); }
+
+        /* What's Inside Section - NEW */
+        .details-section { background-color: #fafafa; padding: 80px 5%; text-align: center; }
+        .details-container { max-width: 1000px; margin: 0 auto; }
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+        .detail-item { text-align: left; }
+        .detail-item h4 { font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; }
+        .detail-item p { font-size: 1rem; color: #666; }
+
+        /* Social Proof Section - NEW */
+        .testimonial-section { padding: 60px 5%; text-align: center; background: #fff; font-style: italic; }
+        .testimonial-section blockquote { font-size: 1.5rem; max-width: 800px; margin: 0 auto; color: #444; }
+        .testimonial-author { margin-top: 20px; font-weight: bold; font-style: normal; text-transform: uppercase; color: #888; font-size: 0.9rem; }
 
         /* Resources Grid */
-        .resources-section { background-color: #fcfcfc; padding: 100px 5%; text-align: center; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto 0;
-        }
-        .card { background: #fff; padding: 50px 30px; border-radius: 8px; border: 1px solid #eee; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { margin-bottom: 15px; }
+        .resources-section { background-color: #fff; padding: 100px 5%; text-align: center; border-top: 1px solid #eee; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
+        .card { background: #fff; padding: 40px; border-radius: 8px; border: 1px solid #eee; transition: box-shadow 0.3s; }
+        .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card a { color: #000; font-weight: bold; text-decoration: none; border-bottom: 2px solid #000; }
 
         /* Global Footer - Identical to index.html */
         .global-footer { background-color: #1a1a1a; color: #ffffff; padding: 80px 0 40px; text-align: center; }
         .footer-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .footer-links { margin-bottom: 40px; }
-        .footer-links a { color: #ccc; text-decoration: none; margin: 0 20px; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links { margin-bottom: 30px; }
+        .footer-links a { color: #ccc; text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: color 0.3s; }
         .footer-links a:hover { color: #fff; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; margin-top: 30px; }
-        .copyright { font-size: 0.8rem; color: #777; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 25px; margin-top: 25px; }
+        .copyright { font-size: 0.8rem; color: #777; letter-spacing: 1px; }
 
-        /* Mobile Responsive */
+        /* Mobile Adjustments */
         @media (max-width: 900px) {
             .hero-container { flex-direction: column; text-align: center; }
-            .hero-content { max-width: 100%; }
             .nav-links { display: none; }
         }
     </style>
@@ -96,7 +102,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="courses.html">Courses</a></li>
             <li><a href="freebies.html" style="color: #888;">Freebies</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -107,57 +113,83 @@
                      alt="Happy woman working on her digital roadmap">
             </div>
             <div class="hero-content">
-                <h1>"Start Here" Welcome Guide</h1>
-                <p>The definitive roadmap for new creators. Learn how to build your digital presence from scratch with our free step-by-step guide delivered straight to your inbox.</p>
+                <h1>Ready to Build Your Digital Empire?</h1>
+                <p>Join 5,000+ creators who have used this exact roadmap to quit their 9-5 and launch their brand with confidence.</p>
+                
                 <form class="hero-form">
                     <input type="text" placeholder="First Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <button type="submit">SEND ME THE GUIDE</button>
+                    <input type="email" placeholder="Your Best Email Address" required>
+                    <button type="submit">SEND ME THE FREE GUIDE</button>
                 </form>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: #999;">* We hate spam as much as you do. Your data is safe.</p>
             </div>
         </div>
     </section>
 
+    <section class="details-section">
+        <div class="details-container">
+            <h2>What’s Inside the Welcome Guide?</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h4>01. The Launch Framework</h4>
+                    <p>The step-by-step 30-day plan to get your first 1,000 followers and your first sale.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>02. Tech-Stack Mastery</h4>
+                    <p>A list of only the essential, low-cost tools you need to automate your business.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>03. Monetization Secrets</h4>
+                    <p>Learn the 3 easiest digital products to launch even if you have zero experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <blockquote>
+            "This guide gave me more clarity in 15 minutes than months of watching random YouTube tutorials. I finally have a real plan!"
+        </blockquote>
+        <div class="testimonial-author">Sarah J. — Lifestyle Blogger</div>
+    </section>
+
     <section class="resources-section">
-        <h2>Exclusive Free Downloads</h2>
+        <h2>Explore More Free Resources</h2>
         <div class="grid">
             <div class="card">
                 <h3>Content Calendar</h3>
-                <p>A 30-day template to organize your social media strategy with ease.</p>
+                <p>Organize your social media strategy with our 30-day template.</p>
                 <br>
                 <a href="#">Download Now</a>
             </div>
             <div class="card">
                 <h3>Brand Audit</h3>
-                <p>Ensure your brand identity is consistent and conversion-ready.</p>
+                <p>Ensure your brand identity is professional and conversion-ready.</p>
                 <br>
                 <a href="#">Get Access</a>
             </div>
             <div class="card">
                 <h3>Tech Stack List</h3>
-                <p>The exact tools we use to automate and scale our digital business.</p>
+                <p>Every tool we use to scale Marie Elle Digital to 6-figures.</p>
                 <br>
                 <a href="#">View List</a>
             </div>
         </div>
     </section>
 
-    <footer>
-    <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
-    
-    <ul class="footer-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="freebies.html">Freebies</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-    </ul>
-
-    <div class="footer-divider"></div>
-
-    <p class="copyright">&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
-</footer>
-
+    <footer class="global-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://www.instagram.com/">Instagram</a>
+                <a href="https://www.pinterest.com/">Pinterest</a>
+                <a href="https://www.youtube.com/">YouTube</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 MARIE ELLE DIGITAL. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
