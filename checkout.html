@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Marie Elle Digital</title>
+    <style>
+        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; line-height: 1.6; }
+
+        /* NAVIGATION BAR */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
+        }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
+        .brand-logo span { color: var(--gold); }
+
+        /* CHECKOUT LAYOUT */
+        .checkout-container {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; 
+            max-width: 1200px; margin: 60px auto; gap: 60px; padding: 0 5%;
+        }
+
+        h2 { font-size: 24px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-tag { color: var(--gold); font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+
+        /* FORM STYLING */
+        .checkout-form section { margin-bottom: 40px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: var(--gray); }
+        input {
+            width: 100%; padding: 15px; border: 1px solid var(--border); 
+            border-radius: 4px; font-size: 14px; transition: 0.3s;
+        }
+        input:focus { outline: none; border-color: var(--gold); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* SUMMARY STYLING */
+        .order-summary {
+            background: var(--off-white); padding: 40px; border-radius: 8px; align-self: start;
+            position: sticky; top: 120px;
+        }
+        .summary-item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .summary-item.total { border-bottom: none; font-weight: 800; font-size: 20px; margin-top: 20px; }
+        
+        .complete-btn {
+            width: 100%; background: var(--charcoal); color: #fff; padding: 20px;
+            border: none; border-radius: 4px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; cursor: pointer; transition: 0.3s; margin-top: 20px;
+        }
+        .complete-btn:hover { background: var(--gold); transform: translateY(-2px); }
+
+        .trust-badges { margin-top: 30px; display: flex; justify-content: center; gap: 20px; opacity: 0.5; font-size: 10px; text-transform: uppercase; font-weight: 700; }
+
+        @media (max-width: 968px) {
+            .checkout-container { grid-template-columns: 1fr; }
+            .order-summary { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <a href="products.html" style="text-decoration: none; font-size: 12px; font-weight: 700; color: var(--gray);">← BACK TO SHOP</a>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <section>
+                <span class="section-tag">01. Contact Information</span>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-tag">02. Payment Details</span>
+                <div class="form-group">
+                    <label>Cardholder Name</label>
+                    <input type="text" placeholder="Name as it appears on card" required>
+                </div>
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" placeholder="0000 0000 0000 0000" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CVC</label>
+                        <input type="text" placeholder="123" required>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-tag">03. Billing Address</span>
+                <div class="form-group">
+                    <label>Street Address</label>
+                    <input type="text" placeholder="123 Digital Way" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" placeholder="New York" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" placeholder="10001" required>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="order-summary">
+            <h2>Your Order</h2>
+            <div id="cart-items">
+                <div class="summary-item">
+                    <div>
+                        <p style="font-weight: 700; font-size: 14px;">Digital Strategy 01</p>
+                        <p style="font-size: 11px; color: var(--gray);">Mini Course Enrollment</p>
+                    </div>
+                    <p style="font-weight: 700;">$47.00</p>
+                </div>
+            </div>
+
+            <div class="summary-item" style="border-bottom: none; margin-top: 20px;">
+                <p style="font-size: 14px; color: var(--gray);">Subtotal</p>
+                <p style="font-size: 14px; font-weight: 700;">$47.00</p>
+            </div>
+            <div class="summary-item total">
+                <p>Total</p>
+                <p>$47.00</p>
+            </div>
+
+            <button class="complete-btn">Complete Purchase</button>
+            
+            <div class="trust-badges">
+                <span>🔒 Secure SSL</span>
+                <span>💳 Encrypted Pay</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
