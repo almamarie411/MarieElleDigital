@@ -3,82 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie Elle Digital | Home</title>
+    <title>Marie Elle Digital | The Top-Rated Resource for Digital Sellers</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
+
+        /* Navigation Styles */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .brand-logo { font-size: 24px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
         .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1001; border-radius: 4px; top: 100%; left: 0; }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; text-align: left; }
-        .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .hero { background: #111; color: white; padding: 120px 8%; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500'); background-size: cover; background-position: center; }
-        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 20px; }
-        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
-        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
-        .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #444; font-size: 14px; font-weight: 500; }
+
+        /* Hero Section (Digital Empires Style) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1500');
+            background-size: cover; background-position: center;
+            height: 80vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center;
+            color: white; padding: 0 10%;
+        }
+        .hero h1 { font-size: clamp(32px, 6vw, 64px); font-weight: 700; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 18px; margin-bottom: 35px; max-width: 800px; color: #eee; }
+        .hero-btn { 
+            background: #b08d57; color: white; padding: 18px 40px; 
+            text-decoration: none; font-weight: bold; border-radius: 4px;
+            text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
+        }
+
+        /* "As Seen In" Bar */
+        .social-proof { padding: 60px 8%; text-align: center; background: #fff; }
+        .social-proof h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #999; margin-bottom: 40px; }
+        .logo-row { display: flex; justify-content: space-around; align-items: center; opacity: 0.6; flex-wrap: wrap; gap: 30px; }
+        .logo-row span { font-size: 24px; font-weight: 900; color: #333; }
+
+        /* Section Layouts */
+        .section-container { padding: 100px 8%; text-align: center; }
+        .section-container h2 { font-size: 36px; margin-bottom: 50px; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .feature-card { padding: 40px; background: #fdfcfb; border: 1px solid #eee; border-radius: 8px; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .feature-card h3 { color: #b08d57; margin-bottom: 15px; }
+
+        footer { padding: 60px 8%; background: #111; color: #666; text-align: center; }
+
+        @media (max-width: 900px) { .feature-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
         <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li class="dropdown">
-                <a href="products.html">SHOP ▾</a>
-                <div class="dropdown-content">
-                    <a href="products.html">All Products</a>
-                    <a href="products.html#courses">Courses</a>
-                    <a href="templates.html">Templates</a>
-                    <a href="guides.html">Guides</a>
-                </div>
-            </li>
-            <li><a href="freebies.html">FREEBIES</a></li>
+            <li><a href="index.html">ABOUT</a></li>
+            <li><a href="products.html">SHOP</a></li>
+            <li><a href="freebies.html">FREE COURSE</a></li>
+            <li><a href="#">REVIEWS</a></li>
             <li><a href="#">LOGIN</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>Turn Your Ideas Into Profitable Digital Products.</h1>
-        <p style="color: #ccc;">The ultimate toolkit for modern digital entrepreneurs in 2026.</p>
-        <a href="products.html" class="cta-btn">BROWSE THE SHOP</a>
+        <h1>The top-rated resource for digital product sellers!</h1>
+        <p>Join 200,000+ entrepreneurs, creatives & side-hustlers who are growing their audience & income with Marie Elle Digital.</p>
+        <a href="freebies.html" class="hero-btn">How Low-Ticket Products Can Make You Millions (Free Course)</a>
     </header>
 
-    <div class="popup-overlay" id="leadPopup">
-        <div class="popup-content">
-            <span class="close-popup" id="closeBtn">&times;</span>
-            <h2>Wait! Don't go empty-handed.</h2>
-            <p>Grab our <strong>Free 2026 Digital Product Starter Kit</strong>.</p>
-            <form action="thank-you.html" class="popup-form">
-                <input type="text" placeholder="First Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <button type="submit" class="popup-submit">Send Me the Kit!</button>
-            </form>
+    <section class="social-proof">
+        <h2>AS SEEN IN...</h2>
+        <div class="logo-row">
+            <span>Forbes</span>
+            <span>BUSINESS INSIDER</span>
+            <span>YAHOO! finance</span>
+            <span>LinkedIn Learning</span>
+            <span>Disrupt</span>
         </div>
-    </div>
+    </section>
 
-    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
+    <section class="section-container">
+        <h2>Ready to get started?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>01. COURSES</h3>
+                <p>Learn the exact systems to launch and scale your digital product business.</p>
+                <a href="products.html#courses" style="color:#b08d57; font-weight:bold; text-decoration:none; display:block; margin-top:15px;">EXPLORE COURSES →</a>
+            </div>
+            <div class="feature-card">
+                <h3>02. TEMPLATES</h3>
+                <p>Save weeks of work with our high-converting Canva and sales templates.</p>
+                <a href="templates.html" style="color:#b08d57; font-weight:bold; text-decoration:none; display:block; margin-top:15px;">VIEW TEMPLATES →</a>
+            </div>
+            <div class="feature-card">
+                <h3>03. GUIDES</h3>
+                <p>Deep-dive strategies into Pinterest, Instagram, and email marketing.</p>
+                <a href="guides.html" style="color:#b08d57; font-weight:bold; text-decoration:none; display:block; margin-top:15px;">READ GUIDES →</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                if (!sessionStorage.getItem('popupShown')) {
-                    document.getElementById('leadPopup').style.display = 'flex';
-                }
-            }, 5000);
-            document.getElementById('closeBtn').onclick = () => {
-                document.getElementById('leadPopup').style.display = 'none';
-                sessionStorage.setItem('popupShown', 'true');
-            }
-        });
-    </script>
+    <footer>
+        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
