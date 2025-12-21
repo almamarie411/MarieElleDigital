@@ -1,111 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie Elle Digital | Scale Your Online Assets</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; }
+<style>
+    /* Founder Section Styles */
+    .founder-section {
+        padding: 100px 8%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        border-top: 1px solid #eee;
+    }
 
-        /* Shared Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    .founder-image {
+        flex: 1;
+        max-width: 450px;
+    }
+
+    .founder-image img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 20px 20px 0px #f7f3f0; /* Aesthetic offset shadow */
+    }
+
+    .founder-content {
+        flex: 1.5;
+    }
+
+    .founder-content h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+
+    .founder-content p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+
+    .signature {
+        font-family: 'Cursive', sans-serif; /* Use a script font if available */
+        font-size: 24px;
+        color: #b08d57;
+        margin-top: 30px;
+        display: block;
+    }
+
+    @media (max-width: 900px) {
+        .founder-section {
+            flex-direction: column;
+            text-align: center;
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
-        .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; transition: 0.3s; }
-        nav ul li a:hover { color: #b08d57; }
-
-        /* Dropdown Logic */
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #fff;
-            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 1001; border-radius: 4px; top: 100%; left: 0;
+        .founder-image {
+            max-width: 100%;
         }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; text-align: left; }
-        .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
-        .dropdown:hover .dropdown-content { display: block; }
+    }
+</style>
 
-        /* Original Hero Section with Updated Wording */
-        .hero {
-            background: #111; color: white; padding: 120px 8%; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500');
-            background-size: cover; background-position: center;
-        }
-        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 15px; }
-        .hero h1 { font-size: clamp(28px, 5vw, 56px); margin-bottom: 20px; line-height: 1.2; font-weight: 800; }
-        .hero p { max-width: 700px; margin: 0 auto 35px; color: #ccc; font-size: 18px; }
-        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; transition: 0.3s; }
-        .cta-btn:hover { background: #8e7146; transform: translateY(-2px); }
-
-        /* Popup Styles */
-        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
-        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
-        .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-
-        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li class="dropdown">
-                <a href="products.html">SHOP ▾</a>
-                <div class="dropdown-content">
-                    <a href="products.html">All Products</a>
-                    <a href="products.html#courses">Courses</a>
-                    <a href="templates.html">Templates</a>
-                    <a href="guides.html">Guides</a>
-                </div>
-            </li>
-            <li><a href="freebies.html">FREEBIES</a></li>
-            <li><a href="#">LOGIN</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero">
-        <p class="hero-eyebrow">The Future of Digital Entrepreneurship</p>
-        <h1>Build Your Empire While You Sleep.</h1>
-        <p>We provide the blueprints, templates, and strategies to turn your creative passions into a high-growth digital asset library.</p>
-        <a href="products.html" class="cta-btn">SHOP ALL SOLUTIONS</a>
-    </header>
-
-    <div class="popup-overlay" id="leadPopup">
-        <div class="popup-content">
-            <span class="close-popup" id="closeBtn">&times;</span>
-            <h2>Don't leave empty-handed!</h2>
-            <p>Get our **2026 Digital Product Starter Kit** and learn how to secure your first $1k month online.</p>
-            <form action="thank-you.html" class="popup-form">
-                <input type="text" placeholder="First Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <button type="submit" class="popup-submit">ACCESS THE KIT</button>
-            </form>
-        </div>
+<section class="founder-section">
+    <div class="founder-image">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800" alt="Marie Elle">
     </div>
-
-    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
-
-    <script>
-        window.addEventListener('load', function() {
-            const popup = document.getElementById('leadPopup');
-            const closeBtn = document.getElementById('closeBtn');
-            setTimeout(() => {
-                if (!sessionStorage.getItem('popupShown')) {
-                    popup.style.display = 'flex';
-                }
-            }, 5000);
-            closeBtn.onclick = () => { popup.style.display = 'none'; sessionStorage.setItem('popupShown', 'true'); }
-        });
-    </script>
-</body>
-</html>
+    <div class="founder-content">
+        <p class="hero-eyebrow" style="text-align: left;">Behind the Brand</p>
+        <h2>Hey, I'm Marie Elle.</h2>
+        <p>
+            A few years ago, I was exactly where you might be now: overwhelmed by the "hustle" and trading my time for every single dollar. I knew there had to be a better way to share my expertise without burning out.
+        </p>
+        <p>
+            That’s why I built Marie Elle Digital. I wanted to create a space where ambitious creators could skip the guesswork and go straight to the systems that work. My mission is to help you package your genius into digital assets that grow your income while you focus on living your life.
+        </p>
+        <p>
+            I’m so glad you’re here. Let's build something incredible together.
+        </p>
+        <span class="signature">Marie Elle</span>
+    </div>
+</section>
