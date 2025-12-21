@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses | Marie Elle Digital</title>
     <style>
+        /* Fix for Sub-menu Layout */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* 1. Ensure the dropdown content is a hidden block, not a flex row */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 1001; /* Keep it above the product grid */
+    top: 100%;
+    left: 0;
+    border-top: 3px solid var(--gold);
+}
+
+/* 2. Force sub-menu links to stack vertically */
+.dropdown-content a {
+    display: block; /* This prevents the "laid out" horizontal look */
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 13px;
+    border-bottom: 1px solid #f4f4f4;
+    text-align: left;
+}
+
+/* 3. Reveal on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* The Bridge: Prevents menu from closing when moving mouse */
+.dropbtn {
+    padding-bottom: 25px;
+    margin-bottom: -25px;
+}
         :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; }
