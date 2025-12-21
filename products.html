@@ -25,13 +25,13 @@
         .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
         .shop-header h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
 
-        /* 5-IN-A-ROW GRID SYSTEM */
+        /* FIXED 5-IN-A-ROW GRID SYSTEM */
         .shop-section { padding: 60px 8%; }
         .category-title { font-size: 24px; font-weight: 800; margin-bottom: 40px; border-bottom: 2px solid #b08d57; display: inline-block; padding-bottom: 5px; }
         
         .product-grid-five {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(5, 1fr); /* Forces exactly 5 per row */
             gap: 20px;
             margin-bottom: 30px;
         }
@@ -42,7 +42,7 @@
             overflow: hidden; transition: 0.3s; text-align: center; display: flex; flex-direction: column;
         }
         .product-card:hover { transform: translateY(-5px); border-color: #b08d57; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-card.hidden { display: none; }
+        .product-card.hidden { display: none; } /* Show more logic */
         
         .product-img { width: 100%; height: 160px; background: #f4f4f4; overflow: hidden; }
         .product-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -53,9 +53,9 @@
         .price { font-size: 16px; font-weight: 800; color: #111; margin-bottom: 12px; }
         
         .buy-btn { 
-            background: #111; color: #fff; padding: 10px; text-decoration: none; 
+            background: #111; color: #fff; padding: 12px; text-decoration: none; 
             font-size: 10px; font-weight: bold; border-radius: 4px; text-transform: uppercase; 
-            transition: 0.3s; margin-top: auto; cursor: pointer; border: none;
+            transition: 0.3s; margin-top: auto; border: none; cursor: pointer;
         }
         .buy-btn:hover { background: #b08d57; }
 
@@ -75,7 +75,7 @@
         .footer-links a { text-decoration: none; color: #ccc; font-size: 12px; font-weight: 600; text-transform: uppercase; }
         .copyright { font-size: 11px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
 
-        /* MOBILE OPTIMIZATION */
+        /* RESPONSIVE */
         @media (max-width: 1200px) { .product-grid-five { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .product-grid-five { grid-template-columns: repeat(2, 1fr); } }
     </style>
@@ -100,26 +100,42 @@
     <section class="shop-section">
         <h2 class="category-title" id="courses">Mini Courses</h2>
         <div class="product-grid-five" id="course-grid">
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 01</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 02</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 03</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 04</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 05</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 06</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 07</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 08</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 09</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 10</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-            
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 01</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-info"><span class="product-tag">Course</span><h3>Asset Blueprint</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div>
+            </div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 03</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 04</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 05</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 06</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 07</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 08</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 09</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 10</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+
             <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Hidden Asset</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
-        </div>
+            </div>
         <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('course-grid', this)">Show More Courses</button></div>
     </section>
 
     <section class="shop-section" style="background-color: #fdfcfb;">
         <h2 class="category-title" id="templates">Done-For-You Templates</h2>
         <div class="product-grid-five" id="template-grid">
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Design Pack 01</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Post Kit 01</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 02</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 03</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 04</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 05</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 06</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 07</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 08</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 09</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 10</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+
             <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Hidden Asset</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
         </div>
         <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('template-grid', this)">Show More Templates</button></div>
@@ -128,7 +144,17 @@
     <section class="shop-section">
         <h2 class="category-title" id="guides">Expert Guides</h2>
         <div class="product-grid-five" id="guide-grid">
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Strategy Guide 01</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>SEO Mastery 01</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 02</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 03</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 04</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 05</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 06</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 07</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 08</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 09</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 10</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+
             <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Hidden Asset</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
         </div>
         <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('guide-grid', this)">Show More Guides</button></div>
@@ -138,11 +164,11 @@
         function revealProducts(gridId, btn) {
             const grid = document.getElementById(gridId);
             const hidden = grid.querySelectorAll('.product-card.hidden');
-            // Reveal exactly the next 10 products
+            // Show exactly 10 more
             for (let i = 0; i < 10 && i < hidden.length; i++) {
                 hidden[i].classList.remove('hidden');
             }
-            // If all 50 slots are now shown, hide the button
+            // Hide the button when everything is revealed
             if (grid.querySelectorAll('.product-card.hidden').length === 0) {
                 btn.parentElement.style.display = 'none';
             }
