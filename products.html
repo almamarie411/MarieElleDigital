@@ -69,63 +69,67 @@
         }
         .buy-btn:hover { background: var(--gold); }
 
-        /* UPDATED BLACK FOOTER STYLES */
-footer { 
-    padding: 100px 8% 40px; 
-    text-align: center; 
-    background: #000; /* Changes background to black */
-    border-top: 1px solid #333; 
-}
+        /* GLOBAL FOOTER STYLES */
+    footer {
+        background-color: var(--charcoal);
+        color: #fff;
+        padding: 60px 8% 30px;
+        text-align: center;
+        margin-top: 80px;
+    }
 
-.footer-logo { 
-    font-size: 18px; 
-    font-weight: 800; 
-    text-decoration: none; 
-    color: #fff; /* Changes main logo text to white */
-    display: block; 
-    margin-bottom: 30px; 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-}
+    .footer-logo {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        margin-bottom: 30px;
+    }
 
-.footer-logo span { 
-    color: var(--gold); /* Keeps "DIGITAL" in gold */
-}
+    .footer-logo span {
+        color: var(--gold);
+    }
 
-.footer-nav { 
-    display: flex; 
-    justify-content: center; 
-    gap: 25px; 
-    list-style: none; 
-    margin-bottom: 30px; 
-}
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        list-style: none;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
 
-.footer-nav a { 
-    text-decoration: none; 
-    color: #bbb; /* Changes links to a light gray for readability */
-    font-size: 12px; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    transition: 0.3s;
-}
+    .footer-nav a {
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+    }
 
-.footer-nav a:hover {
-    color: var(--gold); /* Links turn gold on hover */
-}
+    .footer-nav a:hover {
+        color: var(--gold);
+    }
 
-.footer-divider { 
-    height: 1px; 
-    background: #333; /* Darker divider for the black background */
-    width: 80%; 
-    margin: 0 auto 30px; 
-}
+    .footer-divider {
+        height: 1px;
+        background-color: #333;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 30px;
+    }
 
-.copyright { 
-    font-size: 10px; 
-    color: #888; /* Dimmed gray for the copyright notice */
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-}
+    .copyright {
+        font-size: 11px;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
         /* RESPONSIVE */
         @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -143,9 +147,9 @@ footer {
                 <a href="products.html" class="dropbtn">Products</a>
                 <div class="dropdown-content">
                     <a href="courses.html">Mini-Courses</a>
-                    <a href="templates.html">DFY Templates</a>
-                    <a href="guides.html">Strategic Guides</a>
-                    <a href="reels.html">Instagram Reels</a>
+                    <a href="templates.html">Journals & Planners</a>
+                    <a href="guides.html">Digital Marketing Guides</a>
+                    <a href="reels.html">Content Reels</a>
                 </div>
             </li>
             <li><a href="freebies.html">Freebies</a></li>

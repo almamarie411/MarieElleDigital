@@ -3,160 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Resources | Marie Elle Digital</title>
+    <title>Freebies | Marie Elle Digital</title>
     <style>
-        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; }
-
-        /* NAVIGATION */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
+        /* Hero Section Styling */
+        .hero-section {
+            padding: 80px 20px;
+            background-color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
-        .brand-logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 13px; font-weight: 600; }
 
-        /* HERO SECTION */
-        .hero { display: flex; background: #000; color: #fff; min-height: 500px; }
-        .hero-img { flex: 1; background: url('your-image.jpg') center/cover; }
-        .hero-content { flex: 1; padding: 60px 8%; display: flex; flex-direction: column; justify-content: center; }
-        .hero-content h1 { font-size: 32px; margin-bottom: 20px; color: var(--gold); }
-        .hero-content p { font-size: 16px; margin-bottom: 30px; line-height: 1.6; color: #ccc; }
-        
-        .optin-form input { width: 100%; padding: 15px; margin-bottom: 15px; border: none; border-radius: 4px; }
-        .optin-form button { width: 100%; padding: 15px; background: var(--gold); color: #fff; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-        /* FREEBIE GRID */
-        .freebie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 80px 8%; background: var(--off-white); }
-        .freebie-card { background: #fff; padding: 40px; text-align: center; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .freebie-card h3 { font-size: 20px; margin-bottom: 15px; }
-        .freebie-card p { font-size: 14px; color: var(--gray); margin-bottom: 25px; line-height: 1.5; }
-        .download-btn { text-decoration: none; color: var(--gold); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        /* Left Side: Image */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-        /* GLOBAL FOOTER STYLES */
-    footer {
-        background-color: var(--charcoal);
-        color: #fff;
-        padding: 60px 8% 30px;
-        text-align: center;
-        margin-top: 80px;
-    }
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
 
-    .footer-logo {
-        font-size: 20px;
-        font-weight: 800;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #fff;
-        display: block;
-        margin-bottom: 30px;
-    }
+        /* Right Side: Content */
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+        }
 
-    .footer-logo span {
-        color: var(--gold);
-    }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
-    .footer-nav {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        list-style: none;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-    }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-    .footer-nav a {
-        color: #999;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: color 0.3s ease;
-    }
+        /* Form Styling */
+        .hero-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    .footer-nav a:hover {
-        color: var(--gold);
-    }
+        .hero-form input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
 
-    .footer-divider {
-        height: 1px;
-        background-color: #333;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto 30px;
-    }
+        .hero-form button {
+            padding: 15px 25px;
+            background-color: #000; /* Adjust to your brand color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-    .copyright {
-        font-size: 11px;
-        color: #555;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+        .hero-form button:hover {
+            background-color: #333;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Shop</a></li>
-            <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="aboutme.html">About</a></li>
-        </ul>
-    </nav>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" 
+                     alt="Happy woman working on her laptop">
+            </div>
 
-    <section class="hero">
-        <div class="hero-img"></div>
-        <div class="hero-content">
-            <h1>"Start Here" Welcome Guide</h1>
-            <p>The definitive roadmap for new creators. Learn how to identify your niche and launch your first digital asset.</p>
-            <form class="optin-form">
-                <input type="text" placeholder="First Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <button type="submit">Send Me The Guide</button>
-            </form>
+            <div class="hero-content">
+                <h1>"Start Here" Welcome Guide</h1>
+                <p>The definitive roadmap for new creators. Learn how to build your digital presence from scratch with our free step-by-step guide.</p>
+                
+                <form class="hero-form">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">SEND ME THE GUIDE</button>
+                </form>
+            </div>
         </div>
     </section>
-
-    <div class="freebie-grid">
-        <div class="freebie-card">
-            <h3>Content Audit</h3>
-            <p>A 10-point check to ensure your social posts are actually converting into sales.</p>
-            <a href="#" class="download-btn">Download Now</a>
-        </div>
-        <div class="freebie-card">
-            <h3>50 Product Ideas</h3>
-            <p>A curated list of high-demand digital products across 5 profitable niches.</p>
-            <a href="#" class="download-btn">Download Now</a>
-        </div>
-        <div class="freebie-card">
-            <h3>Brand Kit</h3>
-            <p>A mini-template to help you define your visual identity from day one.</p>
-            <a href="#" class="download-btn">Download Now</a>
-        </div>
-    </div>
-
-    <footer>
-    <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
-    
-    <ul class="footer-nav">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="products.html">PRODUCTS</a></li>
-        <li><a href="freebies.html">FREEBIES</a></li>
-        <li><a href="terms.html">TERMS</a></li>
-        <li><a href="privacy.html">PRIVACY</a></li>
-    </ul>
-
-    <div class="footer-divider"></div>
-
-    <p class="copyright">&copy; 2026 MARIE ELLE DIGITAL. ALL RIGHTS RESERVED.</p>
-</footer>
 
 </body>
 </html>
