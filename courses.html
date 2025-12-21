@@ -3,33 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Courses | Marie Elle Digital</title>
+    <title>Courses | Marie Elle Digital</title>
     <style>
-        /* [COPY NAVIGATION & FOOTER STYLES FROM YOUR PRODUCTS.HTML] */
-        .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 60px 8%; }
-        .course-card { background: #fff; border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: 0.3s; }
-        .course-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .course-img { height: 250px; background: #f8f8f8; }
-        .course-info { padding: 30px; text-align: center; }
-        .badge { background: var(--gold); color: #fff; padding: 5px 15px; font-size: 10px; text-transform: uppercase; font-weight: 800; border-radius: 50px; }
+        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; }
+
+        /* NAVIGATION (Matches your templates.html) */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
+        }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
+        .brand-logo span { color: var(--gold); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 13px; font-weight: 600; }
+
+        /* HEADER */
+        header { padding: 80px 0; text-align: center; }
+        header h1 { font-size: 36px; font-weight: 800; }
+
+        /* 5-COLUMN PRODUCT GRID (Matches your screen) */
+        .product-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 20px; padding: 0 8%; margin-bottom: 100px;
+        }
+
+        .product-card {
+            background: #fff; border-radius: 4px; overflow: hidden;
+            border: 1px solid var(--border); transition: 0.3s;
+        }
+
+        .product-image {
+            height: 180px; background: #ebe6e1; display: flex;
+            align-items: center; justify-content: center;
+            color: #b08d57; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; text-align: center; padding: 20px;
+        }
+
+        .product-info { padding: 20px; }
+        .product-info h3 { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+        .product-info p { font-size: 14px; font-weight: 700; color: var(--gold); }
+
+        /* GLOBAL FOOTER (Matches your screen) */
+        footer { padding: 100px 8% 40px; text-align: center; }
+        .footer-nav { display: flex; justify-content: center; gap: 25px; list-style: none; margin-bottom: 30px; }
+        .footer-nav a { text-decoration: none; color: var(--gray); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        .footer-line { height: 1px; background: #333; width: 80%; margin: 0 auto 30px; }
+        .copyright { font-size: 10px; color: var(--gray); letter-spacing: 1px; }
+
+        @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
-    <header style="text-align: center; padding: 80px 0; background: #fdfcfb;">
-        <span class="section-tag">Educational Assets</span>
-        <h1>Master Your Digital Presence</h1>
+
+    <nav>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="aboutme.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Digital Courses</h1>
     </header>
 
-    <div class="course-grid">
-        <div class="course-card">
-            <div class="course-img"></div>
-            <div class="course-info">
-                <span class="badge">Mini-Course</span>
-                <h3 style="margin-top: 15px;">Faceless Brand Blueprint</h3>
-                <p style="margin: 15px 0;">$47</p>
-                <button class="buy-btn">Enroll Now</button>
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image">Faceless Brand Blueprint</div>
+            <div class="product-info">
+                <h3>Faceless Blueprint</h3>
+                <p>$47.00</p>
             </div>
         </div>
+
+        <div class="product-card">
+            <div class="product-image">Digital Asset Mastery</div>
+            <div class="product-info">
+                <h3>Asset Mastery</h3>
+                <p>$97.00</p>
+            </div>
         </div>
-    </body>
+
+        <div class="product-card">
+            <div class="product-image">Viral Content Strategy</div>
+            <div class="product-info">
+                <h3>Viral Strategy</h3>
+                <p>$37.00</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Email Marketing Setup</div>
+            <div class="product-info">
+                <h3>Email Setup</h3>
+                <p>$27.00</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Launch Your Store</div>
+            <div class="product-info">
+                <h3>Launch Guide</h3>
+                <p>$47.00</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        <div class="footer-line"></div>
+        <p class="copyright">&copy; 2026 MARIE ELLE DIGITAL. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
 </html>
