@@ -5,88 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marie Elle Digital | Scale Your Online Assets</title>
     <style>
+        /* Core Reset & Branding */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fdfcfb; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fff; }
 
-        /* Navigation */
+        /* Navigation - Matches Screen Header */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
+        .brand-logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
         .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; transition: 0.3s; }
-        nav ul li a:hover { color: #b08d57; }
-
-        /* Dropdown Logic */
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #fff;
-            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 1001; border-radius: 4px; top: 100%; left: 0;
-        }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; text-align: left; }
-        .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
-        .dropdown:hover .dropdown-content { display: block; }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
         /* Hero Section - Collaboration Theme */
         .hero {
             background: #111; color: white; padding: 140px 8%; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                               url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500');
             background-size: cover; background-position: center;
-            min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
-        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 15px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 64px); margin-bottom: 20px; line-height: 1.1; font-weight: 800; max-width: 900px; }
-        .hero p { max-width: 750px; margin: 0 auto 40px; color: #ddd; font-size: 18px; font-weight: 300; }
-        .cta-btn { background: #b08d57; color: white; padding: 18px 40px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .cta-btn:hover { background: #8e7146; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(34px, 6vw, 68px); margin-bottom: 25px; line-height: 1.1; font-weight: 800; }
+        .hero p { max-width: 700px; margin-bottom: 40px; color: #eee; font-size: 18px; font-weight: 400; }
+        .cta-btn { background: #b08d57; color: white; padding: 18px 45px; text-decoration: none; font-weight: bold; border-radius: 4px; text-transform: uppercase; transition: 0.3s; }
+        .cta-btn:hover { background: #8e7146; transform: translateY(-3px); }
 
-        /* Social Proof Bar */
-        .social-proof { background: #fff; padding: 40px 8%; text-align: center; border-bottom: 1px solid #eee; }
-        .proof-logos { display: flex; justify-content: center; gap: 40px; opacity: 0.5; font-weight: 800; font-size: 20px; color: #333; flex-wrap: wrap; }
+        /* Interactive "As Seen In" Marquee */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .social-proof { background: #fff; padding: 50px 0; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+        .marquee-container { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+        .marquee-container:hover { animation-play-state: paused; }
+        .proof-logos { display: flex; gap: 100px; align-items: center; padding-right: 100px; }
+        .proof-logos span { font-weight: 900; font-size: 26px; color: #333; opacity: 0.3; transition: 0.3s; cursor: pointer; }
+        .proof-logos span:hover { opacity: 1; color: #b08d57; }
 
-        /* Product Pillars */
-        .section-padding { padding: 100px 8%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; }
-
+        /* Grid Section - As seen on Screen */
+        .section-padding { padding: 120px 8%; text-align: center; }
+        .section-header h2 { font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 80px; }
+        
         .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .pillar-card { background: #fff; padding: 50px 30px; border: 1px solid #eee; border-radius: 8px; text-align: center; transition: 0.3s; }
-        .pillar-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .pillar-card h3 { margin-bottom: 15px; font-size: 22px; color: #b08d57; }
-        .pillar-link { color: #1a1a1a; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase; border-bottom: 2px solid #b08d57; }
-
-        /* Review Section */
-        .reviews { background: #fdfcfb; padding: 100px 8%; text-align: center; border-top: 1px solid #eee; }
-        .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-        .review-card { padding: 30px; background: #fff; border: 1px solid #eee; border-radius: 8px; text-align: left; }
-        .stars { color: #b08d57; font-size: 18px; margin-bottom: 10px; }
+        .pillar-card { 
+            background: #fff; padding: 60px 40px; border: 1px solid #f0f0f0; border-radius: 12px; 
+            transition: all 0.4s ease; text-align: center;
+        }
+        .pillar-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.08); border-color: #b08d57; }
+        .pillar-card h3 { font-size: 26px; font-weight: 700; color: #b08d57; margin-bottom: 25px; }
+        .pillar-card p { font-size: 16px; color: #555; margin-bottom: 35px; min-height: 80px; }
+        .pillar-link { font-weight: 800; font-size: 13px; text-transform: uppercase; color: #1a1a1a; text-decoration: none; border-bottom: 2px solid #b08d57; padding-bottom: 5px; }
 
         /* Founder Section */
-        .founder-section { padding: 100px 8%; background: #fff; display: flex; align-items: center; gap: 60px; border-top: 1px solid #eee; }
-        .founder-image { flex: 1; max-width: 450px; }
-        .founder-image img { width: 100%; border-radius: 8px; box-shadow: 20px 20px 0px #f7f3f0; }
-        .founder-content { flex: 1.5; text-align: left; }
-        .signature { font-size: 24px; color: #b08d57; margin-top: 30px; display: block; font-weight: bold; }
+        .founder-section { padding: 100px 8%; display: flex; align-items: center; gap: 80px; background: #fff; border-top: 1px solid #f0f0f0; }
+        .founder-image img { width: 100%; max-width: 450px; border-radius: 10px; box-shadow: 25px 25px 0px #f9f6f3; }
+        .founder-content { flex: 1; }
+        .founder-content h2 { font-size: 42px; margin-bottom: 25px; font-weight: 800; }
+        .signature { font-size: 26px; color: #b08d57; margin-top: 30px; display: block; font-weight: bold; }
 
-        /* Popup */
-        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
-        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
-        .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        footer { padding: 60px 8%; background: #111; color: #777; text-align: center; font-size: 14px; }
 
-        footer { padding: 60px 8%; background: #111; color: #666; text-align: center; }
-
-        @media (max-width: 900px) { 
-            .pillar-grid, .review-grid, .founder-section { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
-            .founder-content { text-align: center; }
-            .hero { padding: 100px 5%; }
-        }
+        @media (max-width: 1024px) { .pillar-grid { grid-template-columns: 1fr; } .founder-section { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -98,10 +77,10 @@
             <li class="dropdown">
                 <a href="products.html">SHOP ▾</a>
                 <div class="dropdown-content">
-                    <a href="products.html">All Products</a>
-                    <a href="products.html#courses">Courses</a>
-                    <a href="templates.html">Templates</a>
-                    <a href="guides.html">Guides</a>
+                    <a href="products.html">ALL PRODUCTS</a>
+                    <a href="products.html#courses">COURSES</a>
+                    <a href="templates.html">TEMPLATES</a>
+                    <a href="guides.html">GUIDES</a>
                 </div>
             </li>
             <li><a href="freebies.html">FREEBIES</a></li>
@@ -113,12 +92,17 @@
         <p class="hero-eyebrow">The Future of Digital Entrepreneurship</p>
         <h1>Build Your Empire While You Sleep.</h1>
         <p>We provide the blueprints, templates, and strategies to turn your creative passions into a high-growth digital asset library.</p>
-        <a href="products.html" class="cta-btn">SHOP ALL SOLUTIONS</a>
+        <a href="products.html" class="cta-btn">Shop All Solutions</a>
     </header>
 
     <section class="social-proof">
-        <div class="proof-logos">
-            <span>FORBES</span><span>INSIDER</span><span>YAHOO!</span><span>DISRUPT</span>
+        <div class="marquee-container">
+            <div class="proof-logos">
+                <span>FORBES</span><span>BUSINESS INSIDER</span><span>YAHOO!</span><span>DISRUPT</span><span>MEDIUM</span><span>ENTREPRENEUR</span>
+            </div>
+            <div class="proof-logos">
+                <span>FORBES</span><span>BUSINESS INSIDER</span><span>YAHOO!</span><span>DISRUPT</span><span>MEDIUM</span><span>ENTREPRENEUR</span>
+            </div>
         </div>
     </section>
 
@@ -130,7 +114,7 @@
             <div class="pillar-card">
                 <h3>Masterclasses</h3>
                 <p>Comprehensive video courses designed to take you from zero to your first $10k month.</p>
-                <a href="products.html" class="pillar-link">View Courses</a>
+                <a href="products.html#courses" class="pillar-link">View Courses</a>
             </div>
             <div class="pillar-card">
                 <h3>Asset Templates</h3>
@@ -145,65 +129,21 @@
         </div>
     </section>
 
-    <section class="reviews">
-        <div class="section-header"><h2>Trusted by Creators Worldwide</h2></div>
-        <div class="review-grid">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"The Faceless Growth Guide changed everything. I went from 0 to 10k followers in 30 days."</p>
-                <b>— Sarah J.</b>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"High-quality templates that actually convert. My brand finally looks professional."</p>
-                <b>— Marcus T.</b>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"The most actionable roadmap I've found for digital product sellers. No fluff."</p>
-                <b>— Elena R.</b>
-            </div>
-        </div>
-    </section>
-
     <section class="founder-section">
         <div class="founder-image">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800" alt="Marie Elle">
         </div>
         <div class="founder-content">
-            <p class="hero-eyebrow">Behind the Brand</p>
+            <p class="hero-eyebrow" style="text-align: left;">Behind the Brand</p>
             <h2>Hey, I'm Marie Elle.</h2>
-            <p>I built Marie Elle Digital to help ambitious creators skip the guesswork. My mission is to help you package your genius into digital assets that grow your income while you focus on living your life.</p>
-            <p>Whether you're looking for your first sale or your next $10k month, we're here to provide the tools to make it happen.</p>
+            <p>I built Marie Elle Digital to help ambitious creators skip the guesswork and go straight to the systems that work. My mission is to help you package your genius into digital assets that grow your income while you focus on living your life.</p>
             <span class="signature">Marie Elle</span>
         </div>
     </section>
 
-    <div class="popup-overlay" id="leadPopup">
-        <div class="popup-content">
-            <span class="close-popup" id="closeBtn">&times;</span>
-            <h2>Don't leave empty-handed!</h2>
-            <p>Grab our <strong>2026 Digital Product Starter Kit</strong> for free.</p>
-            <form action="thank-you.html" class="popup-form">
-                <input type="text" placeholder="First Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <button type="submit" class="popup-submit">ACCESS THE KIT</button>
-            </form>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+    </footer>
 
-    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
-
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(() => { 
-                if (!sessionStorage.getItem('popupShown')) document.getElementById('leadPopup').style.display = 'flex'; 
-            }, 5000);
-            document.getElementById('closeBtn').onclick = () => { 
-                document.getElementById('leadPopup').style.display = 'none'; 
-                sessionStorage.setItem('popupShown', 'true'); 
-            }
-        });
-    </script>
 </body>
 </html>
