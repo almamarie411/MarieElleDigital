@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marie Elle Digital | Scale Your Online Assets</title>
     <style>
-        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; }
+        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; background: #fff; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; }
 
-        /* FIXED NAVIGATION & DROPDOWN */
+        /* FIXED NAVIGATION & SUBMENU BRIDGE */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
@@ -20,72 +20,50 @@
         nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
         nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
-        /* This fixes the dropdown menu appearing as a single line */
         .dropdown { position: relative; display: inline-block; }
+        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; cursor: pointer; } /* The Bridge */
+        
         .dropdown-content {
             display: none; position: absolute; background: #fff; min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-top: 3px solid var(--gold); 
-            margin-top: 10px; border-radius: 0 0 4px 4px;
+            top: 100%; left: 0; z-index: 1001; border-radius: 0 0 4px 4px; padding: 10px 0;
         }
         .dropdown-content a { 
-            padding: 12px 20px; text-transform: uppercase; font-size: 12px;
-            font-weight: 700; display: block; border-bottom: 1px solid #f4f4f4;
+            padding: 12px 20px; text-transform: uppercase; font-size: 12px; font-weight: 700; 
+            display: block; color: var(--charcoal); border-bottom: 1px solid #f4f4f4;
         }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background: #f9f9f9; color: var(--gold); padding-left: 25px; transition: 0.3s; }
+        .dropdown-content a:hover { background: #fdfcfb; color: var(--gold); padding-left: 25px; transition: 0.3s; }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropbtn::after { content: ' ▾'; font-size: 10px; }
+        .dropbtn::after { content: ' ▾'; font-size: 10px; opacity: 0.5; }
 
         /* HERO (WHAT) */
         .hero {
-            height: 90vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920');
+            height: 85vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920');
             background-size: cover; background-position: center; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 8%;
         }
-        .hero-eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 14px; font-weight: 800; margin-bottom: 20px; color: #fff; }
-        .hero h1 { font-size: 64px; font-weight: 800; margin-bottom: 25px; max-width: 1000px; line-height: 1.1; }
-        .hero p { font-size: 20px; margin-bottom: 40px; max-width: 700px; color: #ddd; }
-        .cta-btn { background: var(--gold); color: #fff; padding: 20px 45px; text-decoration: none; font-weight: 800; border-radius: 4px; transition: 0.3s; text-transform: uppercase; font-size: 14px; }
-        .cta-btn:hover { background: #96784a; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 56px; font-weight: 800; margin-bottom: 20px; max-width: 900px; line-height: 1.1; }
+        .cta-btn { background: var(--gold); color: #fff; padding: 18px 40px; text-decoration: none; font-weight: 800; border-radius: 4px; transition: 0.3s; text-transform: uppercase; }
+        .cta-btn:hover { background: #96784a; transform: translateY(-3px); }
 
         /* STORY (WHO) */
-        .story { padding: 120px 8%; display: flex; align-items: center; gap: 80px; }
-        .story-img { flex: 1; height: 550px; background: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800') center/cover; border-radius: 12px; box-shadow: 20px 20px 0px var(--off-white); }
+        .story { padding: 100px 8%; display: flex; align-items: center; gap: 60px; }
+        .story-img { flex: 1; height: 500px; background: #eee url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800') center/cover; border-radius: 12px; }
         .story-text { flex: 1; }
-        .section-tag { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; margin-bottom: 15px; display: block; }
-        .story-text h2 { font-size: 48px; margin-bottom: 30px; line-height: 1.2; }
-        .story-text p { font-size: 18px; color: var(--gray); margin-bottom: 25px; }
+        .section-tag { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 15px; display: block; }
 
         /* BLUEPRINT (HOW) */
-        .blueprint { background: var(--off-white); padding: 120px 8%; text-align: center; }
-        .blueprint h2 { font-size: 42px; margin-bottom: 60px; }
-        .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .step-card { padding: 40px 30px; background: #fff; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; }
-        .step-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .step-num { font-size: 48px; font-weight: 900; color: #f0f0f0; margin-bottom: 15px; display: block; }
-        .step-card h3 { font-size: 20px; margin-bottom: 15px; }
-
-        /* TRENDING (WHERE) */
-        .trending { padding: 120px 8%; text-align: center; }
-        .trending-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 60px; }
-        .t-card { background: #fff; border: 1px solid #eee; padding-bottom: 20px; border-radius: 8px; transition: 0.3s; overflow: hidden; }
-        .t-card:hover { border-color: var(--gold); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .t-img { height: 180px; background: #f8f8f8; margin-bottom: 20px; }
-        .t-card h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .blueprint { background: var(--off-white); padding: 100px 8%; text-align: center; }
+        .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+        .step-card { padding: 40px 20px; background: #fff; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; }
+        .step-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .step-num { font-size: 40px; font-weight: 800; color: #f0f0f0; margin-bottom: 10px; display: block; }
 
         /* FOOTER */
-        footer { background: var(--charcoal); color: #fff; padding: 100px 8% 40px; text-align: center; }
-        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 40px; display: block; color: #fff; text-decoration: none; }
-        .footer-links { display: flex; justify-content: center; gap: 40px; list-style: none; margin-bottom: 60px; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 25px 0; }
-        .footer-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; }
-        .footer-links a:hover { color: var(--gold); }
-        .copyright { font-size: 12px; color: #555; }
-
-        @media (max-width: 1024px) { 
-            .story { flex-direction: column; text-align: center; }
-            .step-grid { grid-template-columns: repeat(2, 1fr); }
-            .trending-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        footer { background: var(--charcoal); color: #fff; padding: 60px 8%; text-align: center; }
+        .footer-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; list-style: none; }
+        .footer-links a { color: #888; text-decoration: none; font-size: 13px; text-transform: uppercase; font-weight: 600; }
+        .copyright { font-size: 11px; color: #444; margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -97,10 +75,10 @@
             <li class="dropdown">
                 <a href="products.html" class="dropbtn">Shop</a>
                 <div class="dropdown-content">
-                    <a href="products.html">All Products</a>
+                    <a href="products.html">All Assets</a>
                     <a href="reels.html">Instagram Reels</a>
                     <a href="products.html#courses">Mini-Courses</a>
-                    <a href="products.html#templates">Blueprints & Templates</a>
+                    <a href="products.html#templates">Blueprints</a>
                 </div>
             </li>
             <li><a href="freebies.html">Freebies</a></li>
@@ -109,60 +87,42 @@
     </nav>
 
     <header class="hero">
-        <p class="hero-eyebrow">The Asset Marketplace</p>
-        <h1>Turn Your Creative Passion Into High-Growth Digital Assets.</h1>
-        <p>We provide the blueprints, templates, and mini-courses to help digital entrepreneurs scale without the burnout.</p>
-        <a href="products.html" class="cta-btn">Start Building Your Empire</a>
+        <span class="section-tag" style="color: #fff;">The Digital Marketplace</span>
+        <h1>Scale Your Online Presence With Professional Assets.</h1>
+        <p style="margin-bottom: 35px; font-size: 18px; max-width: 650px; color: #ccc;">We provide the "Done-For-You" solutions that modern digital entrepreneurs need to build wealth without burnout.</p>
+        <a href="products.html" class="cta-btn">Browse Shop</a>
     </header>
 
     <section class="story">
         <div class="story-img"></div>
         <div class="story-text">
-            <span class="section-tag">Who We Are</span>
-            <h2>We Architect Freedom for Modern Creators.</h2>
-            <p>Marie Elle Digital was born from a simple belief: freedom isn't just about making money; it's about building systems that make money for you.</p>
-            <p>We specialize in curated, high-aesthetic assets that allow you to launch your brand and scale your influence in a fraction of the time.</p>
-            <br>
-            <a href="about.html" style="color: var(--gold); font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 13px;">Our Mission & Vision →</a>
+            <span class="section-tag">Our Vision</span>
+            <h2 style="font-size: 42px; margin-bottom: 25px;">Build Systems, Not Just Stores.</h2>
+            <p>I believe that true freedom comes from digital leverage. My mission is to provide you with the exact blueprints I use to automate revenue and scale aesthetic brands.</p>
+            <p style="margin-top: 15px;">Whether it's high-conversion templates or viral video assets, every product is curated to save you hundreds of hours.</p>
         </div>
     </section>
 
     <section class="blueprint">
-        <span class="section-tag">How It Works</span>
-        <h2>Your 4-Step Path to Profit</h2>
+        <span class="section-tag">The Strategy</span>
+        <h2>How We Help You Scale</h2>
         <div class="step-grid">
-            <div class="step-card"><span class="step-num">01</span><h3>Identify</h3><p>Browse our catalog and choose the asset that aligns with your niche.</p></div>
-            <div class="step-card"><span class="step-num">02</span><h3>Build</h3><p>Use our DFY templates to launch your offer in hours, not weeks.</p></div>
-            <div class="step-card"><span class="step-num">03</span><h3>Automate</h3><p>Set up the systems that handle leads and sales while you sleep.</p></div>
-            <div class="step-card"><span class="step-num">04</span><h3>Scale</h3><p>Deploy our growth guides to consistently increase your revenue.</p></div>
-        </div>
-    </section>
-
-    <section class="trending">
-        <span class="section-tag">Best Sellers</span>
-        <h2>Most Wanted Digital Blueprints</h2>
-        <div class="trending-grid">
-            <div class="t-card"><div class="t-img"></div><h4>Faceless Growth Lab</h4></div>
-            <div class="t-card"><div class="t-img"></div><h4>Email Sequence Pro</h4></div>
-            <div class="t-card"><div class="t-img"></div><h4>High-Ticket Closer</h4></div>
-            <div class="t-card"><div class="t-img"></div><h4>Brand Identity Kit</h4></div>
-            <div class="t-card"><div class="t-img"></div><h4>Viral Reel Vault</h4></div>
-        </div>
-        <div style="margin-top: 60px;">
-            <a href="products.html" class="cta-btn">View All Assets</a>
+            <div class="step-card"><span class="step-num">01</span><h3>Choose</h3><p>Select professional assets tailored to your niche.</p></div>
+            <div class="step-card"><span class="step-num">02</span><h3>Brand</h3><p>Customize our templates in minutes with your style.</p></div>
+            <div class="step-card"><span class="step-num">03</span><h3>Automate</h3><p>Implement systems that sell while you sleep.</p></div>
+            <div class="step-card"><span class="step-num">04</span><h3>Profit</h3><p>Scale your traffic and enjoy your digital freedom.</p></div>
         </div>
     </section>
 
     <footer>
-        <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <a href="#" class="brand-logo" style="color: #fff;">MARIE ELLE <span>DIGITAL</span></a>
         <ul class="footer-links">
-            <li><a href="products.html">The Shop</a></li>
+            <li><a href="products.html">Shop</a></li>
             <li><a href="reels.html">Reels</a></li>
-            <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-        <div class="copyright">&copy; 2026 Marie Elle Digital. All Rights Reserved. Assets for Modern Entrepreneurs.</div>
+        <p class="copyright">&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
     </footer>
 
 </body>
