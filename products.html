@@ -88,11 +88,11 @@
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
     <a href="products.html" class="dropbtn">Products</a>
-    <div class="dropdown-content">
+   <div class="dropdown-content">
         <a href="courses.html">Mini-Courses</a>
-        <a href="templates.html">DFY Templates</a>
-        <a href="guides.html">Strategic Guides</a>
-        <a href="reels.html">Instagram Reels</a>
+        <a href="templates.html">Templates</a>
+        <a href="guides.html">Guides</a>
+        <a href="reels.html">Reels</a>
     </div>
 </li>
             <li><a href="freebies.html">Freebies</a></li>
@@ -183,9 +183,10 @@
             <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 09</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
             <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 10</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
             
-            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Reels</span><h3>Hidden Asset</h3><p class="price">$15</p><button class="buy-btn">Add to Cart</button></div></div>
-        </div>
-        <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('reels-grid', this)">Show More Reels</button></div><div>
+            <div class="product-card hidden"><div class="product-img"></div>
+            <div class="product-info"><span class="product-tag">Reels</span>
+            <h3>Hidden Asset</h3><p class="price">$15</p><button class="buy-btn">Add to Cart</button></div>
+            <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('product-grid', this)">Show More Reels</button></div><div>
     </section>
 
     
@@ -246,7 +247,8 @@
     padding-bottom: 25px;
     margin-bottom: -25px;
 }
-    /* GLOBAL FOOTER STYLES */
+
+/* GLOBAL FOOTER STYLES */
     footer {
         background-color: var(--charcoal);
         color: #fff;

@@ -3,88 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guides | Marie Elle Digital</title>
+    <title>Strategic Guides | Marie Elle Digital</title>
     <style>
-        
-        /* Reusing your established styles for consistency */
+        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #fdfcfb; line-height: 1.6; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
-        .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; }
+
+        /* NAVIGATION */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
+        }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
+        .brand-logo span { color: var(--gold); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 13px; font-weight: 600; }
+
+        /* DROPDOWN */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1001; border-radius: 4px; }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #fff;
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1001; top: 100%; left: 0; border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            display: block; padding: 12px 20px; text-decoration: none;
+            color: var(--charcoal); font-size: 13px; border-bottom: 1px solid #f4f4f4; text-align: left;
+        }
         .dropdown:hover .dropdown-content { display: block; }
+        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; }
 
-        .shop-header { text-align: center; padding: 60px 5% 20px; background-color: #fff; border-bottom: 1px solid #eee; }
-        .shop-container { padding: 40px 5%; text-align: center; }
-        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 40px; }
-        .product-card { background: white; border-radius: 6px; overflow: hidden; border: 1px solid #eee; text-align: left; transition: transform 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-img { width: 100%; height: 150px; background: #eceae8; color: #b08d57; display: flex; align-items: center; justify-content: center; text-align: center; padding: 15px; font-size: 11px; font-weight: bold; }
-        .product-info { padding: 15px; }
-        .product-info h3 { font-size: 13px; margin-bottom: 8px; height: 32px; overflow: hidden; }
-        .price { font-weight: bold; color: #b08d57; font-size: 16px; }
+        /* HEADER */
+        header { padding: 80px 0; text-align: center; }
+        header h1 { font-size: 36px; font-weight: 800; }
 
-        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; margin-top: 60px; }
-    </style>
-</head>
-<body>
-    <nav>
-    <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        
-        <li class="dropdown">
-    <a href="products.html" class="dropbtn">Products</a>
-    <div class="dropdown-content">
-        <a href="courses.html">Mini-Courses</a>
-        <a href="templates.html">DFY Templates</a>
-        <a href="guides.html">Strategic Guides</a>
-        <a href="reels.html">Instagram Reels</a>
-    </div>
-</li>
+        /* 5-COLUMN PRODUCT GRID */
+        .product-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 20px; padding: 0 8%; margin-bottom: 100px;
+        }
+        .product-card {
+            background: #fff; border-radius: 4px; overflow: hidden;
+            border: 1px solid var(--border); transition: 0.3s;
+        }
+        .product-image {
+            height: 180px; background: #ebe6e1; display: flex;
+            align-items: center; justify-content: center;
+            color: #b08d57; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; text-align: center; padding: 20px;
+        }
+        .product-info { padding: 20px; }
+        .product-info h3 { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+        .product-info p { font-size: 14px; font-weight: 700; color: var(--gold); }
 
-        <li><a href="freebies.html">Freebies</a></li>
-        <li><a href="aboutme.html">About</a></li>
-    </ul>
-</nav>
-
-    <div class="shop-header">
-        <h1>Strategic Guides</h1>
-        <p style="color: #666; margin-top: 10px;">In-depth strategies to scale your digital business.</p>
-    </div>
-
-    <section class="shop-container">
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">The Faceless Growth Guide</div>
-                <div class="product-info"><h3>The Faceless Growth Guide</h3><p class="price">$47.00</p></div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">Mastering Digital Sales</div>
-                <div class="product-info"><h3>Mastering Digital Sales</h3><p class="price">$37.00</p></div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">High-Ticket Mini Guide</div>
-                <div class="product-info"><h3>High-Ticket Mini Guide</h3><p class="price">$27.00</p></div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">SEO for Digital Sellers</div>
-                <div class="product-info"><h3>SEO for Digital Sellers</h3><p class="price">$35.00</p></div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">Passive Income Playbook</div>
-                <div class="product-info"><h3>Passive Income Playbook</h3><p class="price">$49.00</p></div>
-            </div>
-        </div>
-    </section>
-
-    <style>
-    /* GLOBAL FOOTER STYLES */
+        /* GLOBAL FOOTER STYLES */
     footer {
         background-color: var(--charcoal);
         color: #fff;
@@ -145,9 +117,140 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
-</style>
+    </style>
+</head>
+<body>
 
-<footer>
+    <nav>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="products.html" class="dropbtn">Products</a>
+               <div class="dropdown-content">
+        <a href="courses.html">Mini-Courses</a>
+        <a href="templates.html">Templates</a>
+        <a href="guides.html">Guides</a>
+        <a href="reels.html">Reels</a>
+    </div>
+            </li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="aboutme.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Strategic Guides</h1>
+    </header>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image">SEO Content Mastery</div>
+            <div class="product-info"><h3>SEO Mastery</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">90-Day Content Planner</div>
+            <div class="product-info"><h3>Content Calendar</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Audience Growth Guide</div>
+            <div class="product-info"><h3>Growth Manual</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Pinterest Traffic Hack</div>
+            <div class="product-info"><h3>Traffic Guide</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Instagram Stories Mastery</div>
+            <div class="product-info"><h3>Stories Guide</h3><p>$19.00</p></div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Affiliate Marketing 101</div>
+            <div class="product-info"><h3>Affiliate Manual</h3><p>$27.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Digital Shop Checklist</div>
+            <div class="product-info"><h3>Success List</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Email List Building</div>
+            <div class="product-info"><h3>List Growth</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Brand Strategy 101</div>
+            <div class="product-info"><h3>Brand Guide</h3><p>$27.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Viral Hook Blueprint</div>
+            <div class="product-info"><h3>Hook Manual</h3><p>$19.00</p></div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">TikTok Growth Secret</div>
+            <div class="product-info"><h3>TikTok Manual</h3><p>$24.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Facebook Ads Starter</div>
+            <div class="product-info"><h3>Ads Guide</h3><p>$29.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Niche Research Guide</div>
+            <div class="product-info"><h3>Niche Manual</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Product Launch Roadmap</div>
+            <div class="product-info"><h3>Launch Guide</h3><p>$27.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Conversion Copywriting</div>
+            <div class="product-info"><h3>Copy Manual</h3><p>$19.00</p></div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Canva Design Mastery</div>
+            <div class="product-info"><h3>Design Guide</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Passive Income Blueprint</div>
+            <div class="product-info"><h3>Passive Guide</h3><p>$29.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Customer Retention 101</div>
+            <div class="product-info"><h3>Loyalty Manual</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Pricing Strategy Pro</div>
+            <div class="product-info"><h3>Pricing Guide</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Etsy SEO Secrets</div>
+            <div class="product-info"><h3>Etsy Manual</h3><p>$19.00</p></div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Legal for Digital Biz</div>
+            <div class="product-info"><h3>Legal Guide</h3><p>$29.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Content Repurposing</div>
+            <div class="product-info"><h3>Flow Manual</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Influencer Outreach</div>
+            <div class="product-info"><h3>Collab Guide</h3><p>$19.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">Mindset for Creators</div>
+            <div class="product-info"><h3>Creator Manual</h3><p>$15.00</p></div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">The Final Blueprint</div>
+            <div class="product-info"><h3>Master Guide</h3><p>$47.00</p></div>
+        </div>
+    </div>
+
+  <footer>
     <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
     
     <ul class="footer-nav">
@@ -162,5 +265,6 @@
 
     <p class="copyright">&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
 </footer>
+
 </body>
 </html>
