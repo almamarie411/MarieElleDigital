@@ -3,96 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | Marie Elle Digital</title>
+    <title>Shop All Assets | Marie Elle Digital</title>
     <style>
-        /* Shared Styles */
+        /* CORE BRANDING & NAVIGATION (Identical to Index) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; background-color: #fdfcfb; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .brand-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fff; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .brand-logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
         .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1001; border-radius: 4px; top: 100%; left: 0; }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; }
-        .dropdown:hover .dropdown-content { display: block; }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+
+        /* SHOP HEADER */
+        .shop-header { padding: 80px 8% 40px; text-align: center; background: #fdfcfb; }
+        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
+        .shop-header h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
+
+        /* PRODUCT CATEGORIES & GRID */
+        .shop-section { padding: 60px 8%; }
+        .category-title { font-size: 24px; font-weight: 800; margin-bottom: 40px; border-bottom: 2px solid #b08d57; display: inline-block; padding-bottom: 5px; }
         
-        /* Grid Styles */
-        .shop-header { text-align: center; padding: 60px 5%; background-color: #fff; }
-        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; padding: 40px 5%; }
-        .product-card { background: white; border: 1px solid #eee; border-radius: 6px; overflow: hidden; text-align: left; display: none; }
-        .product-card.visible { display: block; }
-        .badge-container { position: relative; }
-        .best-seller-badge { position: absolute; top: 10px; left: 10px; background: #b08d57; color: white; padding: 4px 10px; font-size: 10px; font-weight: bold; border-radius: 2px; }
-        .product-img { width: 100%; height: 150px; background: #222; color: white; display: flex; align-items: center; justify-content: center; padding: 15px; font-size: 11px; text-align: center; }
-        .product-info { padding: 15px; }
-        .price { font-weight: bold; color: #b08d57; font-size: 16px; }
-        #loadMore { display: block; margin: 20px auto; background: #b08d57; color: white; border: none; padding: 15px 40px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
-        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        
+        .product-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: #b08d57; }
+        
+        .product-img { width: 100%; height: 250px; background: #f4f4f4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .product-info { padding: 25px; }
+        .product-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #b08d57; margin-bottom: 10px; display: block; }
+        .product-info h3 { font-size: 20px; margin-bottom: 10px; }
+        .product-info p { font-size: 14px; color: #666; margin-bottom: 20px; }
+        
+        .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f9f9f9; padding-top: 20px; }
+        .price { font-size: 22px; font-weight: 800; color: #111; }
+        .buy-btn { background: #111; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
+        .buy-btn:hover { background: #b08d57; }
+
+        /* FOOTER */
+        footer { background-color: #111; color: #888; padding: 80px 8% 40px; text-align: center; border-top: 1px solid #222; margin-top: 60px; }
+        .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
+        .footer-logo span { color: #b08d57; }
+        .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { text-decoration: none; color: #ccc; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        .copyright { font-size: 12px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
+
+        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
         <ul>
             <li><a href="index.html">HOME</a></li>
-            <li class="dropdown">
-                <a href="products.html">SHOP ▾</a>
-                <div class="dropdown-content">
-                    <a href="products.html">All Products</a>
-                    <a href="products.html#courses">Courses</a>
-                    <a href="templates.html">Templates</a>
-                    <a href="guides.html">Guides</a>
-                </div>
-            </li>
+            <li><a href="products.html" style="color: #b08d57;">SHOP</a></li>
             <li><a href="freebies.html">FREEBIES</a></li>
             <li><a href="#">LOGIN</a></li>
         </ul>
     </nav>
 
-    <div class="shop-header" id="courses">
-        <h1>Digital Mini Courses</h1>
-    </div>
+    <header class="shop-header">
+        <p class="hero-eyebrow">Premium Assets</p>
+        <h1>The Digital Storefront</h1>
+        <p>Expertly crafted solutions to help you launch, market, and scale your digital brand.</p>
+    </header>
 
-    <section class="shop-container">
-        <div class="product-grid" id="productGrid"></div>
-        <button id="loadMore">SHOW MORE</button>
+    <section class="shop-section">
+        <h2 class="category-title" id="courses">Mini Courses</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500" alt="Course"></div>
+                <div class="product-info">
+                    <span class="product-tag">Masterclass</span>
+                    <h3>Digital Asset Blueprint</h3>
+                    <p>Learn the exact framework for creating your first $1k digital product.</p>
+                    <div class="price-row">
+                        <span class="price">$47</span>
+                        <a href="#" class="buy-btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500" alt="Course"></div>
+                <div class="product-info">
+                    <span class="product-tag">Marketing</span>
+                    <h3>The Faceless Growth Lab</h3>
+                    <p>Build an empire and sell assets without ever showing your face on camera.</p>
+                    <div class="price-row">
+                        <span class="price">$67</span>
+                        <a href="#" class="buy-btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title" id="templates">Done-For-You Templates</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=500" alt="Templates"></div>
+                <div class="product-info">
+                    <span class="product-tag">Social Media</span>
+                    <h3>High-Convert Post Kit</h3>
+                    <p>30+ Canva templates designed specifically to move followers to your shop.</p>
+                    <div class="price-row">
+                        <span class="price">$27</span>
+                        <a href="#" class="buy-btn">Get Access</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500" alt="Funnel"></div>
+                <div class="product-info">
+                    <span class="product-tag">Tech</span>
+                    <h3>The Ultimate Funnel Pack</h3>
+                    <p>Plug-and-play landing pages and email sequences that close the sale.</p>
+                    <div class="price-row">
+                        <span class="price">$37</span>
+                        <a href="#" class="buy-btn">Get Access</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
+    <footer>
+        <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+        </ul>
+        <div class="copyright">
+            <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-    <script>
-        const products = [
-            { name: "Digital Marketing 101 Mini Course", price: "27.00" },
-            { name: "Business Backend Basics Mini Course", price: "27.00" },
-            { name: "Establishing Your Brand Mini Course", price: "27.00" },
-            { name: "Email Marketing Mini Course", price: "27.00" },
-            { name: "Boosting Content On Instagram Mini Course", price: "27.00" },
-            { name: "The Insta Blueprint Mini Course", price: "27.00" },
-            { name: "Master Your Mindset Mini Course", price: "27.00" },
-            { name: "Faceless Instagram Basics Mini Course", price: "27.00" },
-            { name: "Insta Profit Selling Basics Mini Course", price: "27.00" },
-            { name: "Pinterest Basics Mini Course", price: "27.00" },
-            { name: "Canva Basics Mini Course", price: "27.00" },
-            { name: "Passive Profit Basics", price: "27.00" }
-        ];
-        let shown = 0;
-        function load() {
-            const grid = document.getElementById('productGrid');
-            for (let i = shown; i < shown + 10 && i < products.length; i++) {
-                const item = document.createElement('div');
-                item.className = 'product-card visible';
-                const badge = (i === 0) ? '<span class="best-seller-badge">Best Seller</span>' : '';
-                item.innerHTML = `<div class="badge-container">${badge}<div class="product-img">${products[i].name}</div></div><div class="product-info"><h3>${products[i].name}</h3><p class="price">$${products[i].price}</p></div>`;
-                grid.appendChild(item);
-            }
-            shown += 10;
-            if (shown >= products.length) document.getElementById('loadMore').style.display = 'none';
-        }
-        load();
-        document.getElementById('loadMore').onclick = load;
-    </script>
 </body>
 </html>

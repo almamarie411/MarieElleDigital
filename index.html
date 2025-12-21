@@ -53,26 +53,19 @@
         .step h4 { font-size: 20px; margin-bottom: 10px; font-weight: 800; }
         .step p { font-size: 14px; color: #666; padding: 0 10px; }
 
-        /* PROBLEM & SOLUTION SECTION */
-        .problem-solver { background: #f9f6f3; padding: 120px 8%; }
-        .problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: center; }
-        .problem-list { list-style: none; margin-top: 30px; }
-        .problem-list li { margin-bottom: 20px; padding-left: 35px; position: relative; font-size: 18px; color: #444; }
-        .problem-list li::before { content: '✕'; position: absolute; left: 0; color: #b08d57; font-weight: bold; }
-        .solution-box { background: #fff; padding: 50px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-
-        /* LATEST INSIGHTS SECTION */
-        .latest-articles { padding: 120px 8%; background: #fff; text-align: center; }
-        .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; text-align: left; }
-        .article-card { text-decoration: none; color: inherit; transition: 0.3s; }
-        .article-card:hover { transform: translateY(-5px); }
-        .article-img { width: 100%; height: 220px; border-radius: 8px; margin-bottom: 20px; overflow: hidden; background: #eee; }
-        .article-img img { width: 100%; height: 100%; object-fit: cover; }
-
-        footer { padding: 60px 8%; background: #111; color: #777; text-align: center; }
+        /* FOOTER */
+        footer {
+            background-color: #111; color: #888; padding: 80px 8% 40px;
+            text-align: center; border-top: 1px solid #222; margin-top: 100px;
+        }
+        .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
+        .footer-logo span { color: #b08d57; }
+        .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { text-decoration: none; color: #ccc; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        .copyright { font-size: 12px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
 
         @media (max-width: 1024px) { 
-            .roadmap, .problem-grid, .article-grid { grid-template-columns: 1fr; } 
+            .roadmap { flex-direction: column; } 
             .roadmap::after { display: none; }
             .step { margin-bottom: 40px; }
         }
@@ -132,47 +125,18 @@
         </div>
     </section>
 
-    <section class="problem-solver">
-        <div class="problem-grid">
-            <div>
-                <h2 style="font-size: 42px; font-weight: 800;">Tired of Trading Time?</h2>
-                <ul class="problem-list">
-                    <li>Creating content that never leads to a real sale.</li>
-                    <li>Trading all your energy for minimal financial return.</li>
-                    <li>Feeling overwhelmed by the technical side of launches.</li>
-                </ul>
-            </div>
-            <div class="solution-box">
-                <h3 style="color: #b08d57; margin-bottom: 20px; font-size: 32px; font-weight: 800;">The Digital Shortcut</h3>
-                <p style="font-size: 18px; margin-bottom: 25px;">We solve the "time-for-money" trap by giving you the exact systems used by six-figure creators to automate their income.</p>
-                <a href="products.html" class="cta-btn" style="padding: 15px 30px; font-size: 14px;">Explore Solutions</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="latest-articles">
-        <h2 style="font-size: 42px; font-weight: 800;">Latest Insights</h2>
-        <div class="article-grid">
-            <a href="#" class="article-card">
-                <div class="article-img"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=500" alt="Assets"></div>
-                <h4 style="font-size: 20px; margin-bottom: 10px;">5 Digital Assets to Build This Week</h4>
-                <p>High-reward products that serve as the perfect entry point for new creators.</p>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-img"><img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=500" alt="Mindset"></div>
-                <h4 style="font-size: 20px; margin-bottom: 10px;">Silence Your Inner Imposter</h4>
-                <p>How to own your expertise and build a brand with total confidence.</p>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500" alt="Growth"></div>
-                <h4 style="font-size: 20px; margin-bottom: 10px;">The Faceless Success Story</h4>
-                <p>Why you don't need a public persona to reach a six-figure digital income.</p>
-            </a>
-        </div>
-    </section>
-
     <footer>
-        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+        <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+        </ul>
+        <div class="copyright">
+            <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>

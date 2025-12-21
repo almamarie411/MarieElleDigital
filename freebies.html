@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Resources | Marie Elle Digital</title>
     <style>
-        /* CORE BRANDING (Matches Index) */
+        /* CORE BRANDING */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fdfcfb; }
 
@@ -20,70 +20,58 @@
         nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
         nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
-        /* FREEBIE HERO */
-        .freebie-header {
-            padding: 100px 8% 60px;
-            text-align: center;
-            background: #fff;
+        /* DROPDOWN LOGIC */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #fff;
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1001; top: 100%; left: 0; padding: 10px 0; border-radius: 4px;
         }
+        .dropdown-content a { color: #444; padding: 12px 20px; display: block; font-size: 12px; border-bottom: 1px solid #f9f9f9; text-decoration: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* FREEBIE HERO */
+        .freebie-header { padding: 100px 8% 60px; text-align: center; background: #fff; }
         .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
         .freebie-header h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; }
         .freebie-header p { max-width: 600px; margin: 0 auto; color: #666; font-size: 18px; }
 
         /* MAIN OFFER CARD */
         .main-offer {
-            max-width: 1000px;
-            margin: 0 auto 100px;
-            display: flex;
-            background: #111;
-            color: #fff;
-            border-radius: 12px;
-            overflow: hidden;
+            max-width: 1000px; margin: 0 auto 100px; display: flex;
+            background: #111; color: #fff; border-radius: 12px; overflow: hidden;
             box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
         .offer-image { flex: 1; background: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800') center/cover; }
         .offer-content { flex: 1.2; padding: 60px; }
         .offer-content h2 { font-size: 32px; margin-bottom: 20px; color: #b08d57; }
-        .offer-content p { margin-bottom: 30px; color: #ccc; }
-
+        
         /* OPT-IN FORM */
-        .optin-form { display: flex; flex-direction: column; gap: 15px; }
+        .optin-form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
         .optin-form input { padding: 15px; border-radius: 4px; border: none; font-size: 16px; width: 100%; }
         .submit-btn { 
             background: #b08d57; color: white; border: none; padding: 18px; 
-            font-weight: bold; cursor: pointer; text-transform: uppercase; 
-            letter-spacing: 1px; transition: 0.3s;
+            font-weight: bold; cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
         .submit-btn:hover { background: #8e7146; }
 
-        /* SECONDARY FREEBIES GRID */
-        .freebie-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 0 8% 100px;
-        }
-        .resource-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            text-align: center;
-            transition: 0.3s;
-        }
+        /* GRID */
+        .freebie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 8% 100px; }
+        .resource-card { background: #fff; padding: 40px; border-radius: 8px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
         .resource-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .resource-icon { font-size: 40px; margin-bottom: 20px; display: block; }
-        .resource-card h3 { margin-bottom: 15px; font-size: 20px; }
-        .resource-card p { font-size: 14px; color: #666; margin-bottom: 25px; }
-        .download-link { color: #b08d57; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 13px; border-bottom: 2px solid #b08d57; padding-bottom: 2px; }
 
-        footer { padding: 60px 8%; background: #111; color: #777; text-align: center; }
-
-        @media (max-width: 900px) {
-            .main-offer { flex-direction: column; margin: 0 5% 60px; }
-            .offer-image { height: 300px; }
-            .freebie-grid { grid-template-columns: 1fr; }
+        /* FOOTER */
+        footer {
+            background-color: #111; color: #888; padding: 80px 8% 40px;
+            text-align: center; border-top: 1px solid #222; margin-top: 100px;
         }
+        .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
+        .footer-logo span { color: #b08d57; }
+        .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { text-decoration: none; color: #ccc; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        .copyright { font-size: 12px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
+
+        @media (max-width: 900px) { .main-offer { flex-direction: column; } .freebie-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -92,7 +80,15 @@
         <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
         <ul>
             <li><a href="index.html">HOME</a></li>
-            <li><a href="products.html">SHOP</a></li>
+            <li class="dropdown">
+                <a href="#">SHOP ▾</a>
+                <div class="dropdown-content">
+                    <a href="products.html">ALL PRODUCTS</a>
+                    <a href="products.html#courses">COURSES</a>
+                    <a href="templates.html">TEMPLATES</a>
+                    <a href="guides.html">GUIDES</a>
+                </div>
+            </li>
             <li><a href="freebies.html" style="color: #b08d57;">FREEBIES</a></li>
             <li><a href="#">LOGIN</a></li>
         </ul>
@@ -101,47 +97,53 @@
     <header class="freebie-header">
         <p class="hero-eyebrow">Level Up For Free</p>
         <h1>Resource Library</h1>
-        <p>Grab our most-requested blueprints and start building your digital empire today—no credit card required.</p>
+        <p>Grab our most-requested blueprints and start building your digital empire today.</p>
     </header>
 
     <section class="main-offer">
         <div class="offer-image"></div>
         <div class="offer-content">
-            <p class="hero-eyebrow">The Featured Resource</p>
+            <p class="hero-eyebrow">Featured Guide</p>
             <h2>"Start Here" Welcome Guide</h2>
-            <p>A 25-page roadmap for new creators. We cover identifying your niche, creating your first lead magnet, and choosing your platform.</p>
-            <form class="optin-form">
+            <p>The definitive roadmap for new creators. Learn how to identify your niche and launch your first digital asset.</p>
+            <form class="optin-form" action="thank-you.html">
                 <input type="text" placeholder="First Name" required>
                 <input type="email" placeholder="Email Address" required>
                 <button type="submit" class="submit-btn">Send Me The Guide</button>
             </form>
-            <p style="font-size: 12px; margin-top: 15px; color: #888;">By signing up, you agree to join our weekly strategy newsletter.</p>
         </div>
     </section>
 
     <div class="freebie-grid">
         <div class="resource-card">
-            <span class="resource-icon">📋</span>
-            <h3>Content Audit Checklist</h3>
-            <p>A simple 10-point check to ensure your Instagram posts are actually converting followers into buyers.</p>
-            <a href="#" class="download-link">Get the Checklist</a>
+            <h3 style="margin-bottom: 15px;">Content Audit</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">A 10-point check to ensure your social posts are actually converting into sales.</p>
+            <a href="#" style="color: #b08d57; font-weight: bold; text-decoration: none; font-size: 13px; text-transform: uppercase;">Download Now</a>
         </div>
         <div class="resource-card">
-            <span class="resource-icon">💡</span>
-            <h3>50 Product Ideas</h3>
-            <p>Stuck on what to sell? Here are 50 profitable digital product ideas across 5 different niches.</p>
-            <a href="#" class="download-link">Get the Ideas</a>
+            <h3 style="margin-bottom: 15px;">50 Product Ideas</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">A curated list of high-demand digital products across 5 profitable niches.</p>
+            <a href="#" style="color: #b08d57; font-weight: bold; text-decoration: none; font-size: 13px; text-transform: uppercase;">Download Now</a>
         </div>
         <div class="resource-card">
-            <span class="resource-icon">🎨</span>
-            <h3>Canva Brand Kit</h3>
-            <p>A free mini-template to help you define your brand colors and fonts so you look professional from day one.</p>
-            <a href="#" class="download-link">Get the Kit</a>
+            <h3 style="margin-bottom: 15px;">Brand Kit</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">A mini-template to help you define your visual identity from day one.</p>
+            <a href="#" style="color: #b08d57; font-weight: bold; text-decoration: none; font-size: 13px; text-transform: uppercase;">Download Now</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+        <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+        </ul>
+        <div class="copyright">
+            <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
