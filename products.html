@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop All Assets | Marie Elle Digital</title>
+    <title>Shop | Marie Elle Digital</title>
     <style>
         /* CORE BRANDING & NAVIGATION */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,12 +19,12 @@
         nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
         nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
-        /* SHOP HEADER */
+        /* HEADER */
         .shop-header { padding: 80px 8% 40px; text-align: center; background: #fdfcfb; }
         .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
         .shop-header h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
 
-        /* GRID SYSTEM */
+        /* 5-IN-A-ROW GRID SYSTEM */
         .shop-section { padding: 60px 8%; }
         .category-title { font-size: 24px; font-weight: 800; margin-bottom: 40px; border-bottom: 2px solid #b08d57; display: inline-block; padding-bottom: 5px; }
         
@@ -35,12 +35,15 @@
             margin-bottom: 30px;
         }
 
+        /* PRODUCT CARDS */
         .product-card { 
             background: #fff; border: 1px solid #eee; border-radius: 8px; 
             overflow: hidden; transition: 0.3s; text-align: center; display: flex; flex-direction: column;
         }
         .product-card:hover { transform: translateY(-5px); border-color: #b08d57; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-card.hidden { display: none; } /* Show more logic */
+        
+        /* HIDDEN BY DEFAULT (EXCEPT FIRST 10) */
+        .product-card.hidden { display: none; }
         
         .product-img { width: 100%; height: 160px; background: #f4f4f4; overflow: hidden; }
         .product-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -57,10 +60,10 @@
         }
         .buy-btn:hover { background: #b08d57; }
 
-        /* SHOW MORE */
-        .show-more-container { text-align: center; margin-top: 10px; margin-bottom: 60px; }
+        /* SHOW MORE BUTTON */
+        .show-more-container { text-align: center; margin-top: 20px; margin-bottom: 60px; }
         .show-more-btn {
-            background: transparent; border: 2px solid #111; padding: 12px 30px;
+            background: transparent; border: 2px solid #111; padding: 12px 40px;
             font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-size: 12px;
         }
         .show-more-btn:hover { background: #111; color: #fff; }
@@ -70,8 +73,7 @@
         .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
         .footer-logo span { color: #b08d57; }
         .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
-        .footer-links a { text-decoration: none; color: #ccc; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
-        .copyright { font-size: 11px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
+        .footer-links a { text-decoration: none; color: #ccc; font-size: 12px; font-weight: 600; text-transform: uppercase; }
 
         @media (max-width: 1200px) { .product-grid-five { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .product-grid-five { grid-template-columns: repeat(2, 1fr); } }
@@ -91,50 +93,37 @@
 
     <header class="shop-header">
         <p class="hero-eyebrow">The Asset Marketplace</p>
-        <h1>Everything you need to scale.</h1>
+        <h1>Expertly Curated Solutions.</h1>
     </header>
 
     <section class="shop-section">
         <h2 class="category-title" id="courses">Mini Courses</h2>
         <div class="product-grid-five" id="course-grid">
-            <div class="product-card">
-                <div class="product-img"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400" alt="Course"></div>
-                <div class="product-info"><span class="product-tag">Masterclass</span><h3>Digital Asset Blueprint</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll Now</a></div>
-            </div>
-            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Advanced Scaling</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 01</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 02</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 03</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 04</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 05</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 06</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 07</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 08</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 09</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 10</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
+            
+            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Hidden Asset</h3><p class="price">$47</p><a href="#" class="buy-btn">Enroll</a></div></div>
         </div>
-        <div class="show-more-container"><button class="show-more-btn" onclick="showMore('course-grid')">Show More Courses</button></div>
-    </section>
-
-    <section class="shop-section" style="background-color: #fdfcfb;">
-        <h2 class="category-title" id="templates">Done-For-You Templates</h2>
-        <div class="product-grid-five" id="template-grid">
-            <div class="product-card">
-                <div class="product-img"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=400" alt="Template"></div>
-                <div class="product-info"><span class="product-tag">Social</span><h3>Post Kit</h3><p class="price">$27</p><a href="#" class="buy-btn">Get Access</a></div>
-            </div>
-            </div>
-        <div class="show-more-container"><button class="show-more-btn" onclick="showMore('template-grid')">Show More Templates</button></div>
-    </section>
-
-    <section class="shop-section">
-        <h2 class="category-title" id="guides">Expert Guides</h2>
-        <div class="product-grid-five">
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><h3>Email Growth</h3><p class="price">$19</p><a href="#" class="buy-btn">Add</a></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><h3>SEO Mastery</h3><p class="price">$19</p><a href="#" class="buy-btn">Add</a></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><h3>Niche Finder</h3><p class="price">$19</p><a href="#" class="buy-btn">Add</a></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><h3>Pricing Secrets</h3><p class="price">$19</p><a href="#" class="buy-btn">Add</a></div></div>
-            <div class="product-card"><div class="product-img"></div><div class="product-info"><h3>Viral Content</h3><p class="price">$19</p><a href="#" class="buy-btn">Add</a></div></div>
-        </div>
+        <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('course-grid')">Show More Courses</button></div>
     </section>
 
     <script>
-        function showMore(gridId) {
+        function revealProducts(gridId) {
             const grid = document.getElementById(gridId);
-            const hiddenCards = grid.querySelectorAll('.product-card.hidden');
-            hiddenCards.forEach((card, index) => {
-                if (index < 10) card.classList.remove('hidden');
-            });
+            const hidden = grid.querySelectorAll('.product-card.hidden');
+            // Show the next 10 products
+            for (let i = 0; i < 10 && i < hidden.length; i++) {
+                hidden[i].classList.remove('hidden');
+            }
+            // Hide button if no more hidden products remain
             if (grid.querySelectorAll('.product-card.hidden').length === 0) {
                 event.target.style.display = 'none';
             }
@@ -147,8 +136,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Shop</a></li>
             <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="terms.html">Terms</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
         </ul>
         <div class="copyright"><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></div>
     </footer>
