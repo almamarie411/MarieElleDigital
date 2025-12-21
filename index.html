@@ -3,55 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie Elle Digital | Build Your Online Empire</title>
+    <title>Marie Elle Digital | Home</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; }
-
-        /* Shared Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
         .brand-logo span { color: #b08d57; }
         nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; transition: 0.3s; }
-        nav ul li a:hover { color: #b08d57; }
-
-        /* Dropdown Logic */
+        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #fff;
-            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 1001; border-radius: 4px; top: 100%; left: 0;
-        }
-        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; }
+        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1001; border-radius: 4px; top: 100%; left: 0; }
+        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; text-align: left; }
         .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
         .dropdown:hover .dropdown-content { display: block; }
-
-        /* Hero */
-        .hero {
-            background: #111; color: white; padding: 120px 8%; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500');
-            background-size: cover; background-position: center;
-        }
-        .hero h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 20px; }
-        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
-
-        /* Popup Styles */
+        .hero { background: #111; color: white; padding: 120px 8%; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500'); background-size: cover; background-position: center; }
+        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 20px; }
         .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
         .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
         .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
         .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
         .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-
         footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
         <ul>
@@ -61,7 +37,8 @@
                 <div class="dropdown-content">
                     <a href="products.html">All Products</a>
                     <a href="products.html#courses">Courses</a>
-                    <a href="#">Templates</a>
+                    <a href="templates.html">Templates</a>
+                    <a href="guides.html">Guides</a>
                 </div>
             </li>
             <li><a href="freebies.html">FREEBIES</a></li>
@@ -71,7 +48,7 @@
 
     <header class="hero">
         <h1>Turn Your Ideas Into Profitable Digital Products.</h1>
-        <p style="margin-bottom: 30px; color: #ccc;">The ultimate toolkit for modern digital entrepreneurs in 2026.</p>
+        <p style="color: #ccc;">The ultimate toolkit for modern digital entrepreneurs in 2026.</p>
         <a href="products.html" class="cta-btn">BROWSE THE SHOP</a>
     </header>
 
@@ -79,7 +56,7 @@
         <div class="popup-content">
             <span class="close-popup" id="closeBtn">&times;</span>
             <h2>Wait! Don't go empty-handed.</h2>
-            <p>Grab our <strong>Free 2026 Digital Product Starter Kit</strong> and learn how to make your first $1,000 online.</p>
+            <p>Grab our <strong>Free 2026 Digital Product Starter Kit</strong>.</p>
             <form action="thank-you.html" class="popup-form">
                 <input type="text" placeholder="First Name" required>
                 <input type="email" placeholder="Email Address" required>
@@ -92,14 +69,15 @@
 
     <script>
         window.addEventListener('load', function() {
-            const popup = document.getElementById('leadPopup');
-            const closeBtn = document.getElementById('closeBtn');
             setTimeout(() => {
                 if (!sessionStorage.getItem('popupShown')) {
-                    popup.style.display = 'flex';
+                    document.getElementById('leadPopup').style.display = 'flex';
                 }
             }, 5000);
-            closeBtn.onclick = () => { popup.style.display = 'none'; sessionStorage.setItem('popupShown', 'true'); }
+            document.getElementById('closeBtn').onclick = () => {
+                document.getElementById('leadPopup').style.display = 'none';
+                sessionStorage.setItem('popupShown', 'true');
+            }
         });
     </script>
 </body>
