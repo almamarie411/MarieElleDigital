@@ -1,96 +1,111 @@
-<style>
-    /* Premium Hero Layout */
-    .hero {
-        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500');
-        background-size: cover;
-        background-position: center;
-        height: 85vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #fff;
-        padding: 0 15%;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marie Elle Digital | Scale Your Online Assets</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; }
 
-    .hero-eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 13px;
-        font-weight: 600;
-        color: #b08d57; /* Brand Gold */
-        margin-bottom: 15px;
-    }
+        /* Shared Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
+        .brand-logo span { color: #b08d57; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #b08d57; }
 
-    .hero h1 {
-        font-size: clamp(34px, 7vw, 68px);
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 25px;
-        max-width: 900px;
-    }
+        /* Dropdown Logic */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #fff;
+            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1001; border-radius: 4px; top: 100%; left: 0;
+        }
+        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; text-align: left; }
+        .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-    .hero p {
-        font-size: clamp(16px, 2vw, 20px);
-        margin-bottom: 40px;
-        max-width: 700px;
-        color: #ddd;
-        font-weight: 300;
-    }
+        /* Original Hero Section with Updated Wording */
+        .hero {
+            background: #111; color: white; padding: 120px 8%; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500');
+            background-size: cover; background-position: center;
+        }
+        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 15px; }
+        .hero h1 { font-size: clamp(28px, 5vw, 56px); margin-bottom: 20px; line-height: 1.2; font-weight: 800; }
+        .hero p { max-width: 700px; margin: 0 auto 35px; color: #ccc; font-size: 18px; }
+        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; transition: 0.3s; }
+        .cta-btn:hover { background: #8e7146; transform: translateY(-2px); }
 
-    .hero-cta-group {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        /* Popup Styles */
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
+        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
+        .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
 
-    .primary-btn {
-        background: #b08d57;
-        color: #fff;
-        padding: 18px 45px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 5px;
-        font-size: 14px;
-        text-transform: uppercase;
-        transition: 0.3s;
-        box-shadow: 0 4px 15px rgba(176, 141, 87, 0.3);
-    }
+        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
 
-    .primary-btn:hover {
-        background: #8e7146;
-        transform: translateY(-2px);
-    }
+    <nav>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="products.html">SHOP ▾</a>
+                <div class="dropdown-content">
+                    <a href="products.html">All Products</a>
+                    <a href="products.html#courses">Courses</a>
+                    <a href="templates.html">Templates</a>
+                    <a href="guides.html">Guides</a>
+                </div>
+            </li>
+            <li><a href="freebies.html">FREEBIES</a></li>
+            <li><a href="#">LOGIN</a></li>
+        </ul>
+    </nav>
 
-    .secondary-btn {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
-        color: #fff;
-        padding: 18px 45px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 5px;
-        font-size: 14px;
-        text-transform: uppercase;
-        border: 1px solid rgba(255,255,255,0.3);
-        transition: 0.3s;
-    }
+    <header class="hero">
+        <p class="hero-eyebrow">The Future of Digital Entrepreneurship</p>
+        <h1>Build Your Empire While You Sleep.</h1>
+        <p>We provide the blueprints, templates, and strategies to turn your creative passions into a high-growth digital asset library.</p>
+        <a href="products.html" class="cta-btn">SHOP ALL SOLUTIONS</a>
+    </header>
 
-    .secondary-btn:hover {
-        background: rgba(255,255,255,0.2);
-    }
-</style>
-
-<header class="hero">
-    <div class="hero-eyebrow">The Future of Digital Entrepreneurship</div>
-    <h1>Build Your Empire While You Sleep.</h1>
-    <p>We provide the blueprints, templates, and strategies to turn your creative passions into a high-growth digital asset library.</p>
-    
-    <div class="hero-cta-group">
-        <a href="products.html" class="primary-btn">Shop All Solutions</a>
-        <a href="freebies.html" class="secondary-btn">Start My Free Training</a>
+    <div class="popup-overlay" id="leadPopup">
+        <div class="popup-content">
+            <span class="close-popup" id="closeBtn">&times;</span>
+            <h2>Don't leave empty-handed!</h2>
+            <p>Get our **2026 Digital Product Starter Kit** and learn how to secure your first $1k month online.</p>
+            <form action="thank-you.html" class="popup-form">
+                <input type="text" placeholder="First Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="popup-submit">ACCESS THE KIT</button>
+            </form>
+        </div>
     </div>
-</header>
+
+    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            const popup = document.getElementById('leadPopup');
+            const closeBtn = document.getElementById('closeBtn');
+            setTimeout(() => {
+                if (!sessionStorage.getItem('popupShown')) {
+                    popup.style.display = 'flex';
+                }
+            }, 5000);
+            closeBtn.onclick = () => { popup.style.display = 'none'; sessionStorage.setItem('popupShown', 'true'); }
+        });
+    </script>
+</body>
+</html>
