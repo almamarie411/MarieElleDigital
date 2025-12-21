@@ -6,24 +6,26 @@
     <title>Free Resources | Marie Elle Digital</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #fdfcfb; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfcfb; line-height: 1.6; }
         
-        /* Shared Nav logic from index.html (Omitted here for brevity, keep the same as above) */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .brand-logo { font-size: 20px; font-weight: 800; text-decoration: none; color: #1a1a1a; }
+        .brand-logo { font-size: 20px; font-weight: 800; text-decoration: none; color: #1a1a1a; text-transform: uppercase; }
         .brand-logo span { color: #b08d57; }
         nav ul { display: flex; list-style: none; gap: 25px; }
         nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
 
-        .header { text-align: center; padding: 80px 8%; background: #fff; }
+        .header { text-align: center; padding: 80px 8%; background: #fff; border-bottom: 1px solid #eee; }
         .header h1 { font-size: 36px; margin-bottom: 10px; }
 
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 40px 8%; }
-        .card { background: white; border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; }
-        .card h3 { margin-bottom: 15px; }
-        .card-btn { background: #b08d57; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 60px 8%; }
+        .card { background: white; border: 1px solid #eee; padding: 40px; border-radius: 8px; text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 15px; font-size: 20px; }
+        .card p { color: #666; margin-bottom: 25px; font-size: 14px; }
+        .card-btn { background: #b08d57; color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; font-size: 13px; }
         
-        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        footer { padding: 40px 8%; background: #111; color: #666; text-align: center; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -38,23 +40,23 @@
 
     <div class="header">
         <h1>Free Resources</h1>
-        <p>Start your digital journey with our curated tools and guides.</p>
+        <p>Expert tools and roadmaps to kickstart your 2026 digital career.</p>
     </div>
 
     <div class="grid">
         <div class="card">
             <h3>2026 Starter Kit</h3>
-            <p style="margin-bottom: 20px;">The exact roadmap to your first digital sale.</p>
+            <p>The exact roadmap to choosing your niche and making your first digital sale.</p>
             <a href="#" class="card-btn">DOWNLOAD NOW</a>
         </div>
         <div class="card">
-            <h3>Content Calendar</h3>
-            <p style="margin-bottom: 20px;">30 days of high-converting social hooks.</p>
+            <h3>Social Hooks Vault</h3>
+            <p>30 days of high-converting captions and reel ideas for digital sellers.</p>
             <a href="#" class="card-btn">DOWNLOAD NOW</a>
         </div>
         <div class="card">
-            <h3>Brand Checklist</h3>
-            <p style="margin-bottom: 20px;">Ensure your digital shop is ready for profit.</p>
+            <h3>Brand Audit Checklist</h3>
+            <p>Ensure your Instagram and shop are optimized for maximum conversion.</p>
             <a href="#" class="card-btn">DOWNLOAD NOW</a>
         </div>
     </div>
