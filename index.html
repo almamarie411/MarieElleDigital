@@ -3,75 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marie Elle Digital | Scale Your Digital Empire</title>
+    <title>Marie Elle Digital | Build Your Online Empire</title>
     <style>
-        /* Modern Reset & Typography */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fff; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; }
 
-        /* Navigation */
+        /* Shared Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: #1a1a1a; }
         .brand-logo span { color: #b08d57; }
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #b08d57; }
 
-        /* Hero Section */
+        /* Dropdown Logic */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #fff;
+            min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1001; border-radius: 4px; top: 100%; left: 0;
+        }
+        .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; }
+        .dropdown-content a:hover { background-color: #f1f1f1; color: #b08d57; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Hero */
         .hero {
-            background: #111; color: white; padding: 100px 8%; text-align: center;
+            background: #111; color: white; padding: 120px 8%; text-align: center;
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1500');
             background-size: cover; background-position: center;
         }
-        .hero h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 20px; max-width: 800px; margin-inline: auto; }
-        .cta-btn {
-            background: #b08d57; color: white; padding: 16px 35px;
-            text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;
-        }
+        .hero h1 { font-size: clamp(28px, 5vw, 48px); margin-bottom: 20px; }
+        .cta-btn { background: #b08d57; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
 
-        /* Product Section */
-        .products { padding: 80px 8%; background: #fdfcfb; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 32px; margin-bottom: 10px; }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .product-card {
-            background: white; border: 1px solid #eee; border-radius: 8px;
-            overflow: hidden; transition: transform 0.3s;
-        }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-img { height: 200px; background: #eee; width: 100%; object-fit: cover; }
-        .product-info { padding: 20px; }
-        .product-category { font-size: 10px; text-transform: uppercase; color: #b08d57; font-weight: bold; }
-        .product-info h3 { font-size: 18px; margin: 5px 0 10px; }
-        .price { font-weight: bold; color: #333; }
+        /* Popup Styles */
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .popup-content { background: #fff; padding: 40px; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; position: relative; }
+        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
+        .popup-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        .popup-submit { width: 100%; background: #b08d57; color: white; border: none; padding: 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
 
-        /* Testimonials Section */
-        .testimonials { padding: 80px 8%; background: #fff; text-align: center; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-        .testimonial-item { font-style: italic; color: #555; }
-        .testimonial-item p { margin-bottom: 15px; font-size: 18px; }
-        .testimonial-author { font-weight: bold; color: #1a1a1a; font-style: normal; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
-
-        /* Footer */
         footer { padding: 40px 8%; background: #111; color: #666; text-align: center; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="brand-logo">MARIE ELLE <span>DIGITAL</span></div>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
         <ul>
-            <li><a href="#">SHOP</a></li>
-            <li><a href="#">COURSES</a></li>
-            <li><a href="#">FREEBIES</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="products.html">SHOP ▾</a>
+                <div class="dropdown-content">
+                    <a href="products.html">All Products</a>
+                    <a href="products.html#courses">Courses</a>
+                    <a href="#">Templates</a>
+                </div>
+            </li>
+            <li><a href="freebies.html">FREEBIES</a></li>
             <li><a href="#">LOGIN</a></li>
         </ul>
     </nav>
@@ -79,64 +72,35 @@
     <header class="hero">
         <h1>Turn Your Ideas Into Profitable Digital Products.</h1>
         <p style="margin-bottom: 30px; color: #ccc;">The ultimate toolkit for modern digital entrepreneurs in 2026.</p>
-        <a href="#shop" class="cta-btn">BROWSE THE SHOP</a>
+        <a href="products.html" class="cta-btn">BROWSE THE SHOP</a>
     </header>
 
-    <section class="products" id="shop">
-        <div class="section-header">
-            <h2>Featured Resources</h2>
-            <p>Proven templates and training to scale Marie Elle Digital style.</p>
+    <div class="popup-overlay" id="leadPopup">
+        <div class="popup-content">
+            <span class="close-popup" id="closeBtn">&times;</span>
+            <h2>Wait! Don't go empty-handed.</h2>
+            <p>Grab our <strong>Free 2026 Digital Product Starter Kit</strong> and learn how to make your first $1,000 online.</p>
+            <form action="thank-you.html" class="popup-form">
+                <input type="text" placeholder="First Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="popup-submit">Send Me the Kit!</button>
+            </form>
         </div>
+    </div>
 
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=500" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Masterclass</span>
-                    <h3>Passive Income Blueprint</h3>
-                    <p class="price">$97.00</p>
-                </div>
-            </div>
+    <footer><p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p></footer>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=500" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">Templates</span>
-                    <h3>Canva Social Media Kit</h3>
-                    <p class="price">$27.00</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=500" class="product-img">
-                <div class="product-info">
-                    <span class="product-category">E-Book</span>
-                    <h3>Digital Marketing 101</h3>
-                    <p class="price">$47.00</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="section-header">
-            <h2>What Our Community Says</h2>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-item">
-                <p>"Marie Elle Digital changed the way I look at passive income. The templates are high-quality and so easy to use!"</p>
-                <div class="testimonial-author">— Sarah J., Digital Creator</div>
-            </div>
-            <div class="testimonial-item">
-                <p>"The best investment I've made for my business this year. Highly recommend the Masterclass!"</p>
-                <div class="testimonial-author">— Michael T., Entrepreneur</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
-    </footer>
-
+    <script>
+        window.addEventListener('load', function() {
+            const popup = document.getElementById('leadPopup');
+            const closeBtn = document.getElementById('closeBtn');
+            setTimeout(() => {
+                if (!sessionStorage.getItem('popupShown')) {
+                    popup.style.display = 'flex';
+                }
+            }, 5000);
+            closeBtn.onclick = () => { popup.style.display = 'none'; sessionStorage.setItem('popupShown', 'true'); }
+        });
+    </script>
 </body>
 </html>
