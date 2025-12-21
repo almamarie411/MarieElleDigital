@@ -7,9 +7,9 @@
     <style>
         :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; background: #fff; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; }
 
-        /* FIXED NAVIGATION (Matches index.html) */
+        /* FIXED NAVIGATION & SUBMENU BRIDGE */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
@@ -21,7 +21,8 @@
         nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; cursor: pointer; }
+        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; cursor: pointer; } /* The Bridge */
+        
         .dropdown-content {
             display: none; position: absolute; background: #fff; min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-top: 3px solid var(--gold); 
@@ -29,11 +30,12 @@
         }
         .dropdown-content a { 
             padding: 12px 20px; text-transform: uppercase; font-size: 12px; font-weight: 700; 
-            display: block; color: var(--charcoal); border-bottom: 1px solid #f4f4f4; text-decoration: none;
+            display: block; color: var(--charcoal); border-bottom: 1px solid #f4f4f4;
         }
         .dropdown-content a:hover { background: #fdfcfb; color: var(--gold); padding-left: 25px; transition: 0.3s; }
         .dropdown:hover .dropdown-content { display: block; }
-
+        .dropbtn::after { content: ' ▾'; font-size: 10px; opacity: 0.5; }
+        
         /* HEADER */
         .page-header { background: var(--off-white); padding: 80px 8%; text-align: center; }
         .section-tag { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 15px; display: block; }

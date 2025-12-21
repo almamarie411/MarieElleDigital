@@ -5,71 +5,266 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Marie Elle Digital</title>
     <style>
-        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
+       :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; }
 
-        /* NAVIGATION */
+        /* FIXED NAVIGATION & SUBMENU BRIDGE */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 1000;
+            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
+        .brand-logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
         .brand-logo span { color: var(--gold); }
         nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
-        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 13px; font-weight: 600; text-transform: uppercase; }
+        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
-        /* DROPDOWN MENU */
         .dropdown { position: relative; display: inline-block; }
+        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; cursor: pointer; } /* The Bridge */
+        
         .dropdown-content {
-            display: none; position: absolute; background-color: #fff;
-            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 1001; top: 100%; left: 0; border-top: 3px solid var(--gold);
+            display: none; position: absolute; background: #fff; min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-top: 3px solid var(--gold); 
+            top: 100%; left: 0; z-index: 1001; border-radius: 0 0 4px 4px; padding: 10px 0;
         }
-        .dropdown-content a {
-            display: block; padding: 12px 20px; text-decoration: none;
-            color: var(--charcoal); font-size: 13px; border-bottom: 1px solid #f4f4f4; text-align: left;
+        .dropdown-content a { 
+            padding: 12px 20px; text-transform: uppercase; font-size: 12px; font-weight: 700; 
+            display: block; color: var(--charcoal); border-bottom: 1px solid #f4f4f4;
         }
+        .dropdown-content a:hover { background: #fdfcfb; color: var(--gold); padding-left: 25px; transition: 0.3s; }
         .dropdown:hover .dropdown-content { display: block; }
-
+        .dropbtn::after { content: ' ▾'; font-size: 10px; opacity: 0.5; }
+        
         /* HEADER */
-        header { padding: 80px 0 40px; text-align: center; }
-        header p { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-        header h1 { font-size: 36px; font-weight: 800; }
+        .shop-header { padding: 80px 8% 40px; text-align: center; background: #fdfcfb; }
+        .hero-eyebrow { color: #b08d57; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; margin-bottom: 20px; }
+        .shop-header h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
 
-        /* UNIFIED 5-COLUMN PRODUCT GRID */
-        .product-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr);
-            gap: 20px; padding: 0 8%; margin-bottom: 100px;
-        }
-        .product-card {
-            background: #fff; border-radius: 4px; overflow: hidden;
-            border: 1px solid var(--border); transition: 0.3s;
-            display: flex; flex-direction: column;
-        }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--gold); }
-
-        .product-image {
-            height: 180px; background: #ebe6e1; display: flex;
-            align-items: center; justify-content: center;
-            color: #b08d57; font-size: 11px; font-weight: 700;
-            text-transform: uppercase; text-align: center; padding: 20px;
+        /* FIXED 5-IN-A-ROW GRID SYSTEM */
+        .shop-section { padding: 60px 8%; }
+        .category-title { font-size: 24px; font-weight: 800; margin-bottom: 40px; border-bottom: 2px solid #b08d57; display: inline-block; padding-bottom: 5px; }
+        
+        .product-grid-five {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Forces exactly 5 per row */
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        .product-info { padding: 20px; text-align: center; }
-        .product-info h3 { font-size: 15px; font-weight: 800; margin-bottom: 5px; color: var(--charcoal); }
-        .product-info p { font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 15px; }
-
-        .buy-btn {
-            display: inline-block; width: 100%; padding: 10px 0;
-            background: #111; color: #fff; text-decoration: none;
-            font-size: 10px; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 1px; border-radius: 4px; transition: 0.3s;
+        /* PRODUCT CARDS */
+        .product-card { 
+            background: #fff; border: 1px solid #eee; border-radius: 8px; 
+            overflow: hidden; transition: 0.3s; text-align: center; display: flex; flex-direction: column;
         }
-        .buy-btn:hover { background: var(--gold); }
+        .product-card:hover { transform: translateY(-5px); border-color: #b08d57; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-card.hidden { display: none; } /* Show more logic */
+        
+        .product-img { width: 100%; height: 160px; background: #f4f4f4; overflow: hidden; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .product-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #b08d57; margin-bottom: 8px; display: block; }
+        .product-info h3 { font-size: 13px; margin-bottom: 10px; height: 35px; overflow: hidden; font-weight: 700; }
+        .price { font-size: 16px; font-weight: 800; color: #111; margin-bottom: 12px; }
+        
+        .buy-btn { 
+            background: #111; color: #fff; padding: 12px; text-decoration: none; 
+            font-size: 10px; font-weight: bold; border-radius: 4px; text-transform: uppercase; 
+            transition: 0.3s; margin-top: auto; border: none; cursor: pointer;
+        }
+        .buy-btn:hover { background: #b08d57; }
 
-        /* GLOBAL FOOTER STYLES */
+        /* SHOW MORE BUTTON */
+        .show-more-container { text-align: center; margin-top: 20px; margin-bottom: 60px; }
+        .show-more-btn {
+            background: transparent; border: 2px solid #111; padding: 12px 40px;
+            font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-size: 12px;
+        }
+        .show-more-btn:hover { background: #111; color: #fff; }
+
+        /* FOOTER */
+        footer { background-color: #111; color: #888; padding: 80px 8% 40px; text-align: center; border-top: 1px solid #222; }
+        .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
+        .footer-logo span { color: #b08d57; }
+        .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { text-decoration: none; color: #ccc; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .copyright { font-size: 11px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) { .product-grid-five { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .product-grid-five { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+    <a href="products.html" class="dropbtn">Products</a>
+   <div class="dropdown-content">
+        <a href="courses.html">Mini-Courses</a>
+        <a href="templates.html">Templates</a>
+        <a href="guides.html">Guides</a>
+        <a href="reels.html">Reels</a>
+    </div>
+</li>
+            <li><a href="freebies.html">Freebies</a></li>
+            <li><a href="Aboutme.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header class="shop-header">
+        <p class="hero-eyebrow">The Asset Marketplace</p>
+        <h1>Expertly Curated Solutions.</h1>
+    </header>
+
+    <section class="shop-section">
+        <h2 class="category-title" id="courses">Mini Courses</h2>
+        <div class="product-grid-five" id="course-grid">
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-info"><span class="product-tag">Course</span><h3>Digital Strategy 01</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-info"><span class="product-tag">Course</span><h3>Asset Blueprint</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div>
+            </div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 03</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 04</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 05</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 06</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 07</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 08</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 09</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Mastery 10</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+
+            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Course</span><h3>Hidden Asset</h3><p class="price">$47</p><button class="buy-btn">Enroll</button></div></div>
+            </div>
+            
+        <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('course-grid', this)">Show More Courses</button></div>
+    </section>
+
+    <section class="shop-section" style="background-color: #fdfcfb;">
+        <h2 class="category-title" id="templates">Done-For-You Templates</h2>
+        <div class="product-grid-five" id="template-grid">
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Post Kit 01</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 02</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 03</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 04</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 05</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 06</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 07</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 08</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 09</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Kit 10</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+
+            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Template</span><h3>Hidden Asset</h3><p class="price">$27</p><button class="buy-btn">Get Access</button></div></div>
+        </div>
+        <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('template-grid', this)">Show More Templates</button></div>
+    </section>
+
+    <section class="shop-section">
+        <h2 class="category-title" id="guides">Strategic Guides</h2>
+        <div class="product-grid-five" id="guide-grid">
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>SEO Mastery 01</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 02</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 03</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 04</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 05</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 06</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 07</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 08</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 09</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+            <div class="product-card"><div class="product-card"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Guide 10</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+
+            <div class="product-card hidden"><div class="product-img"></div><div class="product-info"><span class="product-tag">Guide</span><h3>Hidden Asset</h3><p class="price">$19</p><button class="buy-btn">Add to Cart</button></div></div>
+        </div>
+        <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('guide-grid', this)">Show More Guides</button></div>
+    </section>
+    
+    <section class="shop-section">
+        <h2 class="category-title" id="guides">Viral Instagram Reels</h2>
+            <div class="product-grid-five" id="reels-grid">
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Luxury Suite</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Minimal Desk</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>City Night</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Ocean Flow</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Golden Hour</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 06</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 07</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 08</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 09</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            <div class="product-card"><div class="product-img"></div><div class="p-info"><h3>Aesthetic 10</h3><p style="margin-bottom:10px;">$15</p><button class="buy-btn">Download</button></div></div>
+            
+            <div class="product-card hidden"><div class="product-img"></div>
+            <div class="product-info"><span class="product-tag">Reels</span>
+            <h3>Hidden Asset</h3><p class="price">$15</p><button class="buy-btn">Add to Cart</button></div>
+            <div class="show-more-container"><button class="show-more-btn" onclick="revealProducts('product-grid', this)">Show More Reels</button></div><div>
+    </section>
+
+    
+
+    <script>
+        function revealProducts(gridId, btn) {
+            const grid = document.getElementById(gridId);
+            const hidden = grid.querySelectorAll('.product-card.hidden');
+            // Show exactly 10 more
+            for (let i = 0; i < 10 && i < hidden.length; i++) {
+                hidden[i].classList.remove('hidden');
+            }
+            // Hide the button when everything is revealed
+            if (grid.querySelectorAll('.product-card.hidden').length === 0) {
+                btn.parentElement.style.display = 'none';
+            }
+        }
+    </script>
+
+   <style>
+    /* Fix for Sub-menu Layout */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* 1. Ensure the dropdown content is a hidden block, not a flex row */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 1001; /* Keep it above the product grid */
+    top: 100%;
+    left: 0;
+    border-top: 3px solid var(--gold);
+}
+
+/* 2. Force sub-menu links to stack vertically */
+.dropdown-content a {
+    display: block; /* This prevents the "laid out" horizontal look */
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 13px;
+    border-bottom: 1px solid #f4f4f4;
+    text-align: left;
+}
+
+/* 3. Reveal on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* The Bridge: Prevents menu from closing when moving mouse */
+.dropbtn {
+    padding-bottom: 25px;
+    margin-bottom: -25px;
+}
+
+/* GLOBAL FOOTER STYLES */
     footer {
         background-color: var(--charcoal);
         color: #fff;
@@ -130,157 +325,23 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
+</style>
 
-        /* RESPONSIVE */
-        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
+<footer>
+    <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
+    
+    <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="freebies.html">Freebies</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+    </ul>
 
-    <nav>
-        <a href="index.html" class="brand-logo">MARIE ELLE <span>DIGITAL</span></a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="products.html" class="dropbtn">Products</a>
-                <div class="dropdown-content">
-                    <a href="courses.html">Mini-Courses</a>
-                    <a href="templates.html">Journals & Planners</a>
-                    <a href="guides.html">Digital Marketing Guides</a>
-                    <a href="reels.html">Content Reels</a>
-                </div>
-            </li>
-            <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="aboutme.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="footer-divider"></div>
 
-    <header>
-        <p>The Asset Marketplace</p>
-        <h1>Expertly Curated Solutions</h1>
-    </header>
-
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="product-image">Faceless Brand Blueprint</div>
-            <div class="product-info"><h3>Faceless Blueprint</h3><p>$47.00</p><a href="#" class="buy-btn">Enroll Now</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Digital Asset Mastery</div>
-            <div class="product-info"><h3>Asset Mastery</h3><p>$97.00</p><a href="#" class="buy-btn">Enroll Now</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Viral Content Strategy</div>
-            <div class="product-info"><h3>Viral Strategy</h3><p>$37.00</p><a href="#" class="buy-btn">Enroll Now</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Email Marketing Setup</div>
-            <div class="product-info"><h3>Email Setup</h3><p>$27.00</p><a href="#" class="buy-btn">Enroll Now</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Launch Your Store</div>
-            <div class="product-info"><h3>Launch Guide</h3><p>$47.00</p><a href="#" class="buy-btn">Enroll Now</a></div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">Luxury Suite B-Roll</div>
-            <div class="product-info"><h3>Luxury Suite</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Minimal Desk Workspace</div>
-            <div class="product-info"><h3>Minimal Desk</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">City Night Lifestyle</div>
-            <div class="product-info"><h3>City Night</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Ocean Flow Aesthetic</div>
-            <div class="product-info"><h3>Ocean Flow</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Golden Hour Glow</div>
-            <div class="product-info"><h3>Golden Hour</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">Morning Coffee Routine</div>
-            <div class="product-info"><h3>Aesthetic 06</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Modern Interior Design</div>
-            <div class="product-info"><h3>Aesthetic 07</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Quiet Library Study</div>
-            <div class="product-info"><h3>Aesthetic 08</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Sunset Beach Walk</div>
-            <div class="product-info"><h3>Aesthetic 09</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">High-Rise Balcony View</div>
-            <div class="product-info"><h3>Aesthetic 10</h3><p>$15.00</p><a href="#" class="buy-btn">Download</a></div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">SEO Content Mastery</div>
-            <div class="product-info"><h3>SEO Mastery</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">High-Converting Post Kit</div>
-            <div class="product-info"><h3>Post Kit 01</h3><p>$27.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">90-Day Content Planner</div>
-            <div class="product-info"><h3>Content Calendar</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Modern Brand Identity</div>
-            <div class="product-info"><h3>Brand Kit 01</h3><p>$27.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Audience Growth Guide</div>
-            <div class="product-info"><h3>Growth Manual</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">Pinterest Traffic Hack</div>
-            <div class="product-info"><h3>Traffic Guide</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Affiliate Marketing 101</div>
-            <div class="product-info"><h3>Affiliate Manual</h3><p>$27.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Canva Design Secrets</div>
-            <div class="product-info"><h3>Design Kit 02</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Instagram Stories Mastery</div>
-            <div class="product-info"><h3>Stories Guide</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">Digital Shop Checklist</div>
-            <div class="product-info"><h3>Success List</h3><p>$19.00</p><a href="#" class="buy-btn">Add to Cart</a></div>
-        </div>
-    </div>
-
-    <footer>
-        <a href="index.html" class="footer-logo">MARIE ELLE <span>DIGITAL</span></a>
-        <ul class="footer-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="terms.html">Terms</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-        </ul>
-        <div class="footer-divider"></div>
-        <p class="copyright">&copy; 2026 MARIE ELLE DIGITAL. ALL RIGHTS RESERVED.</p>
-    </footer>
+    <p class="copyright">&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
