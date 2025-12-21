@@ -117,4 +117,26 @@
 
         // Function to show the next 10 products
         function showNextBatch() {
-            const cards = document.querySelectorAll('.product
+            const cards = document.querySelectorAll('.product-card');
+            const nextBatch = currentVisible + itemsPerBatch;
+
+            for (let i = currentVisible; i < nextBatch && i < totalProducts; i++) {
+                cards[i].classList.add('visible');
+            }
+
+            currentVisible = nextBatch;
+
+            // Hide button if no more products
+            if (currentVisible >= totalProducts) {
+                loadMoreBtn.classList.add('hidden');
+            }
+        }
+
+        // Initial Load
+        showNextBatch();
+
+        // Button Click Event
+        loadMoreBtn.addEventListener('click', showNextBatch);
+    </script>
+</body>
+</html>
