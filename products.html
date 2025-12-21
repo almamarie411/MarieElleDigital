@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop All Assets | Marie Elle Digital</title>
     <style>
-        /* CORE BRANDING & NAVIGATION (Identical to Index) */
+        /* CORE BRANDING & NAVIGATION */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; background-color: #fff; }
 
@@ -33,7 +33,7 @@
         .product-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; position: relative; }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: #b08d57; }
         
-        .product-img { width: 100%; height: 250px; background: #f4f4f4; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-img { width: 100%; height: 250px; background: #f4f4f4; overflow: hidden; }
         .product-img img { width: 100%; height: 100%; object-fit: cover; }
         
         .product-info { padding: 25px; }
@@ -43,18 +43,29 @@
         
         .price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f9f9f9; padding-top: 20px; }
         .price { font-size: 22px; font-weight: 800; color: #111; }
-        .buy-btn { background: #111; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
+        .buy-btn { background: #111; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 4px; text-transform: uppercase; transition: 0.3s; text-align: center; }
         .buy-btn:hover { background: #b08d57; }
 
+        /* GUIDES SPECIFIC STYLING */
+        .guides-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+        .guide-item { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .guide-item:hover { border-color: #b08d57; transform: translateY(-5px); }
+        .guide-thumb { width: 100%; height: 140px; background: #f9f9f9; margin-bottom: 15px; border-radius: 4px; overflow: hidden; }
+        .guide-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .guide-item h4 { font-size: 13px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .guide-item p { font-weight: 800; color: #b08d57; margin-bottom: 15px; }
+        .buy-btn.mini { padding: 8px 15px; font-size: 10px; width: 100%; display: block; }
+
         /* FOOTER */
-        footer { background-color: #111; color: #888; padding: 80px 8% 40px; text-align: center; border-top: 1px solid #222; margin-top: 60px; }
+        footer { background-color: #111; color: #888; padding: 80px 8% 40px; text-align: center; border-top: 1px solid #222; }
         .footer-logo { font-size: 20px; font-weight: 800; text-transform: uppercase; text-decoration: none; color: #fff; margin-bottom: 20px; display: block; }
         .footer-logo span { color: #b08d57; }
         .footer-links { display: flex; list-style: none; gap: 25px; justify-content: center; margin-bottom: 30px; }
         .footer-links a { text-decoration: none; color: #ccc; font-size: 13px; font-weight: 600; text-transform: uppercase; }
         .copyright { font-size: 12px; color: #555; border-top: 1px solid #222; padding-top: 30px; }
 
-        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 1200px) { .guides-row { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .product-grid, .guides-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -65,7 +76,7 @@
             <li><a href="index.html">HOME</a></li>
             <li><a href="products.html" style="color: #b08d57;">SHOP</a></li>
             <li><a href="freebies.html">FREEBIES</a></li>
-            <li><a href="#">LOGIN</a></li>
+            <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
 
@@ -83,7 +94,7 @@
                 <div class="product-info">
                     <span class="product-tag">Masterclass</span>
                     <h3>Digital Asset Blueprint</h3>
-                    <p>Learn the exact framework for creating your first $1k digital product.</p>
+                    <p>The core framework for creating, launching, and scaling your first $1k digital product.</p>
                     <div class="price-row">
                         <span class="price">$47</span>
                         <a href="#" class="buy-btn">Enroll Now</a>
@@ -123,12 +134,48 @@
                 <div class="product-info">
                     <span class="product-tag">Tech</span>
                     <h3>The Ultimate Funnel Pack</h3>
-                    <p>Plug-and-play landing pages and email sequences that close the sale.</p>
+                    <p>Plug-and-play landing pages and email sequences that close the sale automatically.</p>
                     <div class="price-row">
                         <span class="price">$37</span>
                         <a href="#" class="buy-btn">Get Access</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-section" style="background-color: #fdfcfb; padding-bottom: 100px;">
+        <h2 class="category-title" id="guides">Expert Guides</h2>
+        <div class="guides-row">
+            <div class="guide-item">
+                <div class="guide-thumb"><img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=300" alt="Guide"></div>
+                <h4>Email List Growth</h4>
+                <p>$19</p>
+                <a href="#" class="buy-btn mini">Add to Cart</a>
+            </div>
+            <div class="guide-item">
+                <div class="guide-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300" alt="Guide"></div>
+                <h4>SEO Mastery</h4>
+                <p>$19</p>
+                <a href="#" class="buy-btn mini">Add to Cart</a>
+            </div>
+            <div class="guide-item">
+                <div class="guide-thumb"><img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?auto=format&fit=crop&w=300" alt="Guide"></div>
+                <h4>Niche Finder</h4>
+                <p>$19</p>
+                <a href="#" class="buy-btn mini">Add to Cart</a>
+            </div>
+            <div class="guide-item">
+                <div class="guide-thumb"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=300" alt="Guide"></div>
+                <h4>Pricing Secrets</h4>
+                <p>$19</p>
+                <a href="#" class="buy-btn mini">Add to Cart</a>
+            </div>
+            <div class="guide-item">
+                <div class="guide-thumb"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300" alt="Guide"></div>
+                <h4>Viral Content</h4>
+                <p>$19</p>
+                <a href="#" class="buy-btn mini">Add to Cart</a>
             </div>
         </div>
     </section>
@@ -139,8 +186,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Shop</a></li>
             <li><a href="freebies.html">Freebies</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
         </ul>
         <div class="copyright">
             <p>&copy; 2026 Marie Elle Digital. All Rights Reserved.</p>
