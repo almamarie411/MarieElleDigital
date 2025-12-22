@@ -5,19 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategic Guides | Marie Elle Digital</title>
     <style>
-        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; --border: #eee; }
+        :root { --gold: #b08d57; --charcoal: #1a1a1a; --off-white: #fdfcfb; --gray: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: #fff; }
+        body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; }
 
-        /* NAVIGATION */
+        /* FIXED NAVIGATION & SUBMENU BRIDGE */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: #fff; border-bottom: 1px solid var(--border);
+            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .brand-logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
+        .brand-logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; color: var(--charcoal); }
         .brand-logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 13px; font-weight: 600; }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; text-transform: uppercase; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { padding-bottom: 25px; margin-bottom: -25px; cursor: pointer; } /* The Bridge */
+        
+        .dropdown-content {
+            display: none; position: absolute; background: #fff; min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-top: 3px solid var(--gold); 
+            top: 100%; left: 0; z-index: 1001; border-radius: 0 0 4px 4px; padding: 10px 0;
+        }
+        .dropdown-content a { 
+            padding: 12px 20px; text-transform: uppercase; font-size: 12px; font-weight: 700; 
+            display: block; color: var(--charcoal); border-bottom: 1px solid #f4f4f4;
+        }
+        .dropdown-content a:hover { background: #fdfcfb; color: var(--gold); padding-left: 25px; transition: 0.3s; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropbtn::after { content: ' ▾'; font-size: 10px; opacity: 0.5; }
+
 
         /* DROPDOWN */
         .dropdown { position: relative; display: inline-block; }
@@ -126,16 +144,17 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="products.html" class="dropbtn">Products</a>
-           <div class="dropdown-content">
+                     <a href="products.html" class="dropbtn">Products</a>
+  <div class="dropdown-content">
                     <a href="courses.html">Mini-Courses</a>
                     <a href="templates.html">Journals & Planners</a>
                     <a href="guides.html">Digital Marketing Guides</a>
                     <a href="reels.html">Content Reels</a>
                 </div>
-            </li>
+</li>
             <li><a href="freebies.html">Freebies</a></li>
             <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
